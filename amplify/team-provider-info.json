@@ -1,0 +1,15 @@
+{
+  "dawaii": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-dawaii-dawaii-124633-authRole",
+      "UnauthRoleArn": "arn:aws:iam::796960269388:role/amplify-dawaii-dawaii-124633-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::796960269388:role/amplify-dawaii-dawaii-124633-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-dawaii-dawaii-124633-deployment",
+      "UnauthRoleName": "amplify-dawaii-dawaii-124633-unauthRole",
+      "StackName": "amplify-dawaii-dawaii-124633",
+      "StackId": "arn:aws:cloudformation:us-east-1:796960269388:stack/amplify-dawaii-dawaii-124633/fc5ac780-1b89-11ec-aadc-123b4eac2117",
+      "AmplifyAppId": "d3sconrkhpfegq"
+    }
+  }
+}
