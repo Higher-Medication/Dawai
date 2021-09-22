@@ -8,6 +8,7 @@ mutation CreateTask(
     title
     description
     status
+    test
     _version
     _deleted
     _lastChangedAt
@@ -24,6 +25,7 @@ mutation UpdateTask(
     title
     description
     status
+    test
     _version
     _deleted
     _lastChangedAt
@@ -40,6 +42,7 @@ mutation DeleteTask(
     title
     description
     status
+    test
     _version
     _deleted
     _lastChangedAt
@@ -47,11 +50,11 @@ mutation DeleteTask(
     updatedAt
   }
 }
-mutation CreateNote(
-  $input: CreateNoteInput!
-  $condition: ModelNoteConditionInput
+mutation CreateTest(
+  $input: CreateTestInput!
+  $condition: ModelTestConditionInput
 ) {
-  createNote(input: $input, condition: $condition) {
+  createTest(input: $input, condition: $condition) {
     id
     content
     _version
@@ -61,11 +64,11 @@ mutation CreateNote(
     updatedAt
   }
 }
-mutation UpdateNote(
-  $input: UpdateNoteInput!
-  $condition: ModelNoteConditionInput
+mutation UpdateTest(
+  $input: UpdateTestInput!
+  $condition: ModelTestConditionInput
 ) {
-  updateNote(input: $input, condition: $condition) {
+  updateTest(input: $input, condition: $condition) {
     id
     content
     _version
@@ -75,11 +78,11 @@ mutation UpdateNote(
     updatedAt
   }
 }
-mutation DeleteNote(
-  $input: DeleteNoteInput!
-  $condition: ModelNoteConditionInput
+mutation DeleteTest(
+  $input: DeleteTestInput!
+  $condition: ModelTestConditionInput
 ) {
-  deleteNote(input: $input, condition: $condition) {
+  deleteTest(input: $input, condition: $condition) {
     id
     content
     _version

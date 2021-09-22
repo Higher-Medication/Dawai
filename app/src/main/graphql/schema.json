@@ -139,7 +139,7 @@
                         "deprecationReason": null
                     },
                     {
-                        "name": "syncNotes",
+                        "name": "syncTests",
                         "description": null,
                         "args": [
                             {
@@ -147,7 +147,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelNoteFilterInput",
+                                    "name": "ModelTestFilterInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -185,14 +185,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "ModelNoteConnection",
+                            "name": "ModelTestConnection",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "getNote",
+                        "name": "getTest",
                         "description": null,
                         "args": [
                             {
@@ -212,14 +212,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Note",
+                            "name": "Test",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "listNotes",
+                        "name": "listTests",
                         "description": null,
                         "args": [
                             {
@@ -227,7 +227,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelNoteFilterInput",
+                                    "name": "ModelTestFilterInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -255,7 +255,7 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "ModelNoteConnection",
+                            "name": "ModelTestConnection",
                             "ofType": null
                         },
                         "isDeprecated": false,
@@ -305,6 +305,16 @@
                     },
                     {
                         "name": "status",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "test",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
@@ -965,6 +975,18 @@
                         "deprecationReason": null
                     },
                     {
+                        "name": "test",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
                         "name": "_version",
                         "description": null,
                         "args": [],
@@ -1058,7 +1080,7 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "ModelNoteFilterInput",
+                "name": "ModelTestFilterInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -1090,7 +1112,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "INPUT_OBJECT",
-                                "name": "ModelNoteFilterInput",
+                                "name": "ModelTestFilterInput",
                                 "ofType": null
                             }
                         },
@@ -1104,7 +1126,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "INPUT_OBJECT",
-                                "name": "ModelNoteFilterInput",
+                                "name": "ModelTestFilterInput",
                                 "ofType": null
                             }
                         },
@@ -1115,7 +1137,7 @@
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelNoteFilterInput",
+                            "name": "ModelTestFilterInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1127,7 +1149,7 @@
             },
             {
                 "kind": "OBJECT",
-                "name": "ModelNoteConnection",
+                "name": "ModelTestConnection",
                 "description": null,
                 "fields": [
                     {
@@ -1139,7 +1161,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "OBJECT",
-                                "name": "Note",
+                                "name": "Test",
                                 "ofType": null
                             }
                         },
@@ -1178,7 +1200,7 @@
             },
             {
                 "kind": "OBJECT",
-                "name": "Note",
+                "name": "Test",
                 "description": null,
                 "fields": [
                     {
@@ -1412,7 +1434,7 @@
                         "deprecationReason": null
                     },
                     {
-                        "name": "createNote",
+                        "name": "createTest",
                         "description": null,
                         "args": [
                             {
@@ -1423,7 +1445,7 @@
                                     "name": null,
                                     "ofType": {
                                         "kind": "INPUT_OBJECT",
-                                        "name": "CreateNoteInput",
+                                        "name": "CreateTestInput",
                                         "ofType": null
                                     }
                                 },
@@ -1434,7 +1456,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelNoteConditionInput",
+                                    "name": "ModelTestConditionInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -1442,14 +1464,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Note",
+                            "name": "Test",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "updateNote",
+                        "name": "updateTest",
                         "description": null,
                         "args": [
                             {
@@ -1460,7 +1482,7 @@
                                     "name": null,
                                     "ofType": {
                                         "kind": "INPUT_OBJECT",
-                                        "name": "UpdateNoteInput",
+                                        "name": "UpdateTestInput",
                                         "ofType": null
                                     }
                                 },
@@ -1471,7 +1493,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelNoteConditionInput",
+                                    "name": "ModelTestConditionInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -1479,14 +1501,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Note",
+                            "name": "Test",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "deleteNote",
+                        "name": "deleteTest",
                         "description": null,
                         "args": [
                             {
@@ -1497,7 +1519,7 @@
                                     "name": null,
                                     "ofType": {
                                         "kind": "INPUT_OBJECT",
-                                        "name": "DeleteNoteInput",
+                                        "name": "DeleteTestInput",
                                         "ofType": null
                                     }
                                 },
@@ -1508,7 +1530,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelNoteConditionInput",
+                                    "name": "ModelTestConditionInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -1516,7 +1538,7 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Note",
+                            "name": "Test",
                             "ofType": null
                         },
                         "isDeprecated": false,
@@ -1579,6 +1601,16 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "test",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "_version",
                         "description": null,
                         "type": {
@@ -1621,6 +1653,16 @@
                     },
                     {
                         "name": "status",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "test",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
@@ -1723,6 +1765,16 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "test",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "_version",
                         "description": null,
                         "type": {
@@ -1774,7 +1826,7 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "CreateNoteInput",
+                "name": "CreateTestInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -1819,7 +1871,7 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "ModelNoteConditionInput",
+                "name": "ModelTestConditionInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -1841,7 +1893,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "INPUT_OBJECT",
-                                "name": "ModelNoteConditionInput",
+                                "name": "ModelTestConditionInput",
                                 "ofType": null
                             }
                         },
@@ -1855,7 +1907,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "INPUT_OBJECT",
-                                "name": "ModelNoteConditionInput",
+                                "name": "ModelTestConditionInput",
                                 "ofType": null
                             }
                         },
@@ -1866,7 +1918,7 @@
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelNoteConditionInput",
+                            "name": "ModelTestConditionInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1878,7 +1930,7 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "UpdateNoteInput",
+                "name": "UpdateTestInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -1923,7 +1975,7 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "DeleteNoteInput",
+                "name": "DeleteTestInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -1998,36 +2050,36 @@
                         "deprecationReason": null
                     },
                     {
-                        "name": "onCreateNote",
+                        "name": "onCreateTest",
                         "description": null,
                         "args": [],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Note",
+                            "name": "Test",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "onUpdateNote",
+                        "name": "onUpdateTest",
                         "description": null,
                         "args": [],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Note",
+                            "name": "Test",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "onDeleteNote",
+                        "name": "onDeleteTest",
                         "description": null,
                         "args": [],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Note",
+                            "name": "Test",
                             "ofType": null
                         },
                         "isDeprecated": false,
