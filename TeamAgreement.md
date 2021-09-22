@@ -1,7 +1,7 @@
 # Team-Agreement
 
 
-Team Name: **The Elite 4**
+Team Name: **Overdose**
 
 Team Members: 
 + Anas Al-Ramahi
@@ -12,7 +12,7 @@ Team Members:
 
 
 ### Overview:
-Our website is designed to make a system for clinics, where secretaries and doctors can use and make their communication much easier. Doctors can register their clinics, and they can add the prescriptoins for any patient through the website into the database. The secretary will register every patient so they can have a record in the database and any prescription added by the doctor will be added into their record. This way the patient wil have a perminant record in the clinic they go to, which makes the experience for the customers much more comfortable and simple.
+Our application is designed to make it easier to remember medication and take the required pills on time. It sends notifications and alarms the user on time to take medecine, and tracks his performance along the way. Also you can add symptoms you face in any time to be able to review them in case you had to explain anything to a doctor. It makes some people's lifes easier especially with the easy to use interface.
 
 
 ### Cooperation Plan
