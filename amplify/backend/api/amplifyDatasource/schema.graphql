@@ -3,8 +3,9 @@ type Task @model {
   title: String!
   description: String
   status: String
+  test: String
 }
-type Note @model {
+type Test @model {
   id: ID!
   content: String!
 }
