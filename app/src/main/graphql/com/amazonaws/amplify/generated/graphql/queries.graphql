@@ -1,11 +1,11 @@
 # this is an auto generated file. This will be overwritten
-query SyncTasks(
-  $filter: ModelTaskFilterInput
+query SyncUsers(
+  $filter: ModelUserFilterInput
   $limit: Int
   $nextToken: String
   $lastSync: AWSTimestamp
 ) {
-  syncTasks(
+  syncUsers(
     filter: $filter
     limit: $limit
     nextToken: $nextToken
@@ -13,9 +13,12 @@ query SyncTasks(
   ) {
     items {
       id
-      title
-      description
-      status
+      name
+      dateOfBirth
+      meds {
+        nextToken
+        startedAt
+      }
       test
       _version
       _deleted
@@ -27,12 +30,27 @@ query SyncTasks(
     startedAt
   }
 }
-query GetTask($id: ID!) {
-  getTask(id: $id) {
+query GetUser($id: ID!) {
+  getUser(id: $id) {
     id
-    title
-    description
-    status
+    name
+    dateOfBirth
+    meds {
+      items {
+        id
+        name
+        numberOfTablets
+        dosage
+        userId
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
     test
     _version
     _deleted
@@ -41,17 +59,20 @@ query GetTask($id: ID!) {
     updatedAt
   }
 }
-query ListTasks(
-  $filter: ModelTaskFilterInput
+query ListUsers(
+  $filter: ModelUserFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listTasks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      title
-      description
-      status
+      name
+      dateOfBirth
+      meds {
+        nextToken
+        startedAt
+      }
       test
       _version
       _deleted
@@ -63,13 +84,13 @@ query ListTasks(
     startedAt
   }
 }
-query SyncTests(
-  $filter: ModelTestFilterInput
+query SyncMedicines(
+  $filter: ModelMedicineFilterInput
   $limit: Int
   $nextToken: String
   $lastSync: AWSTimestamp
 ) {
-  syncTests(
+  syncMedicines(
     filter: $filter
     limit: $limit
     nextToken: $nextToken
@@ -77,7 +98,21 @@ query SyncTests(
   ) {
     items {
       id
-      content
+      name
+      numberOfTablets
+      dosage
+      userId
+      user {
+        id
+        name
+        dateOfBirth
+        test
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
       _version
       _deleted
       _lastChangedAt
@@ -88,10 +123,28 @@ query SyncTests(
     startedAt
   }
 }
-query GetTest($id: ID!) {
-  getTest(id: $id) {
+query GetMedicine($id: ID!) {
+  getMedicine(id: $id) {
     id
-    content
+    name
+    numberOfTablets
+    dosage
+    userId
+    user {
+      id
+      name
+      dateOfBirth
+      meds {
+        nextToken
+        startedAt
+      }
+      test
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
     _version
     _deleted
     _lastChangedAt
@@ -99,15 +152,29 @@ query GetTest($id: ID!) {
     updatedAt
   }
 }
-query ListTests(
-  $filter: ModelTestFilterInput
+query ListMedicines(
+  $filter: ModelMedicineFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listTests(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listMedicines(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      content
+      name
+      numberOfTablets
+      dosage
+      userId
+      user {
+        id
+        name
+        dateOfBirth
+        test
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
       _version
       _deleted
       _lastChangedAt

@@ -1,13 +1,28 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateTask(
-  $input: CreateTaskInput!
-  $condition: ModelTaskConditionInput
+mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
 ) {
-  createTask(input: $input, condition: $condition) {
+  createUser(input: $input, condition: $condition) {
     id
-    title
-    description
-    status
+    name
+    dateOfBirth
+    meds {
+      items {
+        id
+        name
+        numberOfTablets
+        dosage
+        userId
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
     test
     _version
     _deleted
@@ -16,15 +31,30 @@ mutation CreateTask(
     updatedAt
   }
 }
-mutation UpdateTask(
-  $input: UpdateTaskInput!
-  $condition: ModelTaskConditionInput
+mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
 ) {
-  updateTask(input: $input, condition: $condition) {
+  updateUser(input: $input, condition: $condition) {
     id
-    title
-    description
-    status
+    name
+    dateOfBirth
+    meds {
+      items {
+        id
+        name
+        numberOfTablets
+        dosage
+        userId
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
     test
     _version
     _deleted
@@ -33,15 +63,30 @@ mutation UpdateTask(
     updatedAt
   }
 }
-mutation DeleteTask(
-  $input: DeleteTaskInput!
-  $condition: ModelTaskConditionInput
+mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
 ) {
-  deleteTask(input: $input, condition: $condition) {
+  deleteUser(input: $input, condition: $condition) {
     id
-    title
-    description
-    status
+    name
+    dateOfBirth
+    meds {
+      items {
+        id
+        name
+        numberOfTablets
+        dosage
+        userId
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
     test
     _version
     _deleted
@@ -50,13 +95,31 @@ mutation DeleteTask(
     updatedAt
   }
 }
-mutation CreateTest(
-  $input: CreateTestInput!
-  $condition: ModelTestConditionInput
+mutation CreateMedicine(
+  $input: CreateMedicineInput!
+  $condition: ModelMedicineConditionInput
 ) {
-  createTest(input: $input, condition: $condition) {
+  createMedicine(input: $input, condition: $condition) {
     id
-    content
+    name
+    numberOfTablets
+    dosage
+    userId
+    user {
+      id
+      name
+      dateOfBirth
+      meds {
+        nextToken
+        startedAt
+      }
+      test
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
     _version
     _deleted
     _lastChangedAt
@@ -64,13 +127,31 @@ mutation CreateTest(
     updatedAt
   }
 }
-mutation UpdateTest(
-  $input: UpdateTestInput!
-  $condition: ModelTestConditionInput
+mutation UpdateMedicine(
+  $input: UpdateMedicineInput!
+  $condition: ModelMedicineConditionInput
 ) {
-  updateTest(input: $input, condition: $condition) {
+  updateMedicine(input: $input, condition: $condition) {
     id
-    content
+    name
+    numberOfTablets
+    dosage
+    userId
+    user {
+      id
+      name
+      dateOfBirth
+      meds {
+        nextToken
+        startedAt
+      }
+      test
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
     _version
     _deleted
     _lastChangedAt
@@ -78,13 +159,31 @@ mutation UpdateTest(
     updatedAt
   }
 }
-mutation DeleteTest(
-  $input: DeleteTestInput!
-  $condition: ModelTestConditionInput
+mutation DeleteMedicine(
+  $input: DeleteMedicineInput!
+  $condition: ModelMedicineConditionInput
 ) {
-  deleteTest(input: $input, condition: $condition) {
+  deleteMedicine(input: $input, condition: $condition) {
     id
-    content
+    name
+    numberOfTablets
+    dosage
+    userId
+    user {
+      id
+      name
+      dateOfBirth
+      meds {
+        nextToken
+        startedAt
+      }
+      test
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
     _version
     _deleted
     _lastChangedAt

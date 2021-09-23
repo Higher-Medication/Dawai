@@ -3,8 +3,8 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "31.0.0"
+    compileSdkVersion 30
+    buildToolsVersion '30.0.2'
 
     defaultConfig {
         applicationId "com.example.dawaii"
@@ -39,5 +39,8 @@ dependencies {
 
     implementation 'com.amplifyframework:aws-api:1.24.0'
     implementation 'com.amplifyframework:aws-datastore:1.24.0'
+
+    //congnito
+    implementation 'com.amplifyframework:aws-auth-cognito:1.24.0'
 
 }
