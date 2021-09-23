@@ -1,10 +1,25 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateTask {
-  onCreateTask {
+subscription OnCreateUser {
+  onCreateUser {
     id
-    title
-    description
-    status
+    name
+    dateOfBirth
+    meds {
+      items {
+        id
+        name
+        numberOfTablets
+        dosage
+        userId
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
     test
     _version
     _deleted
@@ -13,12 +28,27 @@ subscription OnCreateTask {
     updatedAt
   }
 }
-subscription OnUpdateTask {
-  onUpdateTask {
+subscription OnUpdateUser {
+  onUpdateUser {
     id
-    title
-    description
-    status
+    name
+    dateOfBirth
+    meds {
+      items {
+        id
+        name
+        numberOfTablets
+        dosage
+        userId
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
     test
     _version
     _deleted
@@ -27,12 +57,27 @@ subscription OnUpdateTask {
     updatedAt
   }
 }
-subscription OnDeleteTask {
-  onDeleteTask {
+subscription OnDeleteUser {
+  onDeleteUser {
     id
-    title
-    description
-    status
+    name
+    dateOfBirth
+    meds {
+      items {
+        id
+        name
+        numberOfTablets
+        dosage
+        userId
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
     test
     _version
     _deleted
@@ -41,10 +86,28 @@ subscription OnDeleteTask {
     updatedAt
   }
 }
-subscription OnCreateTest {
-  onCreateTest {
+subscription OnCreateMedicine {
+  onCreateMedicine {
     id
-    content
+    name
+    numberOfTablets
+    dosage
+    userId
+    user {
+      id
+      name
+      dateOfBirth
+      meds {
+        nextToken
+        startedAt
+      }
+      test
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
     _version
     _deleted
     _lastChangedAt
@@ -52,10 +115,28 @@ subscription OnCreateTest {
     updatedAt
   }
 }
-subscription OnUpdateTest {
-  onUpdateTest {
+subscription OnUpdateMedicine {
+  onUpdateMedicine {
     id
-    content
+    name
+    numberOfTablets
+    dosage
+    userId
+    user {
+      id
+      name
+      dateOfBirth
+      meds {
+        nextToken
+        startedAt
+      }
+      test
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
     _version
     _deleted
     _lastChangedAt
@@ -63,10 +144,28 @@ subscription OnUpdateTest {
     updatedAt
   }
 }
-subscription OnDeleteTest {
-  onDeleteTest {
+subscription OnDeleteMedicine {
+  onDeleteMedicine {
     id
-    content
+    name
+    numberOfTablets
+    dosage
+    userId
+    user {
+      id
+      name
+      dateOfBirth
+      meds {
+        nextToken
+        startedAt
+      }
+      test
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
     _version
     _deleted
     _lastChangedAt

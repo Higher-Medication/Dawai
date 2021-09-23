@@ -1,15 +1,15 @@
 type User @model {
   id: ID!
   name: String!
-  dateOfBirth: Date
+  dateOfBirth: AWSDate
   meds:[Medicine] @connection(keyName:"byMid",fields:["id"])
   test: String
 }
 type Medicine @model @key(name:"byMid", fields:["userId"]){
   id: ID!
   name: String!
-  numberOfTablets: int
-  dosage : int!
+  numberOfTablets: Int
+  dosage : Int!
   userId:ID!
   user : User @connection(fields:["userId"])
 }
