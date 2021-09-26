@@ -99,7 +99,14 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        Button testButton=findViewById(R.id.TestButton);
+        testButton.setOnClickListener(view -> {
+            Intent intent=new Intent(MainActivity.this,AddMedicineActivity.class);
+            startActivity(intent);
+        });
+
     }
+
 }
 
 //        Button signInBtn = findViewById(R.id.signIn);
