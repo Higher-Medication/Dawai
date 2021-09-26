@@ -12,6 +12,12 @@ import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.Date;
+import com.amplifyframework.datastore.generated.model.Medicine;
+import com.amplifyframework.datastore.generated.model.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     boolean isSignedIn;
@@ -53,7 +59,35 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
+ //        User user = User.builder()
+//                .name("saify")
+//                .dateOfBirth()
+//                .meds(medicine)
+//                .build();
 //
+//        List times = new ArrayList();
+//        times.add("8:00AM");
+//
+//        Medicine medicine = Medicine.builder()
+//                .name("panadol")
+//                .times(times)
+//                .numberOfTablets(24)
+//                .user(user)
+//                .date(date)
+//                .build();
+//
+//
+//        Date date = Date.builder()
+//                .date()
+//                .meds(medicine)
+//                .build();
+
+        //fetching userData
+//        Amplify.Auth.fetchAuthSession(
+//                result -> {
+//                    Log.i("AmplifyQuickstart", result.toString());
+//                    isSignedIn = result.isSignedIn();
+ //
 //        Button loginBtn = findViewById(R.id.loginBtn);
 //
 //        loginBtn.setOnClickListener(new View.OnClickListener() {

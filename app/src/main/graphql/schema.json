@@ -304,16 +304,6 @@
                         "defaultValue": null
                     },
                     {
-                        "name": "test",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
                         "name": "and",
                         "description": null,
                         "type": {
@@ -946,7 +936,7 @@
                         "args": [],
                         "type": {
                             "kind": "SCALAR",
-                            "name": "AWSDate",
+                            "name": "String",
                             "ofType": null
                         },
                         "isDeprecated": false,
@@ -1000,18 +990,6 @@
                         "type": {
                             "kind": "OBJECT",
                             "name": "ModelMedicineConnection",
-                            "ofType": null
-                        },
-                        "isDeprecated": false,
-                        "deprecationReason": null
-                    },
-                    {
-                        "name": "test",
-                        "description": null,
-                        "args": [],
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "String",
                             "ofType": null
                         },
                         "isDeprecated": false,
@@ -1100,16 +1078,6 @@
                 "possibleTypes": null
             },
             {
-                "kind": "SCALAR",
-                "name": "AWSDate",
-                "description": null,
-                "fields": null,
-                "inputFields": null,
-                "interfaces": null,
-                "enumValues": null,
-                "possibleTypes": null
-            },
-            {
                 "kind": "INPUT_OBJECT",
                 "name": "ModelMedicineFilterInput",
                 "description": null,
@@ -1136,7 +1104,7 @@
                         "defaultValue": null
                     },
                     {
-                        "name": "numberOfTablets",
+                        "name": "availableTablets",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
@@ -1156,11 +1124,51 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "requiredTimes",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelIntInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "expirationDate",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "userId",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
                             "name": "ModelIDInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "times",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "dates",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1425,7 +1433,7 @@
                         "deprecationReason": null
                     },
                     {
-                        "name": "numberOfTablets",
+                        "name": "availableTablets",
                         "description": null,
                         "args": [],
                         "type": {
@@ -1441,13 +1449,33 @@
                         "description": null,
                         "args": [],
                         "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "Int",
-                                "ofType": null
-                            }
+                            "kind": "SCALAR",
+                            "name": "Int",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "requiredTimes",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Int",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "expirationDate",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
@@ -1476,6 +1504,46 @@
                             "kind": "OBJECT",
                             "name": "User",
                             "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "times",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "LIST",
+                                "name": null,
+                                "ofType": {
+                                    "kind": "SCALAR",
+                                    "name": "String",
+                                    "ofType": null
+                                }
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "dates",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "LIST",
+                                "name": null,
+                                "ofType": {
+                                    "kind": "SCALAR",
+                                    "name": "String",
+                                    "ofType": null
+                                }
+                            }
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
@@ -1840,16 +1908,6 @@
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "AWSDate",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "test",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
                             "name": "String",
                             "ofType": null
                         },
@@ -1888,16 +1946,6 @@
                     },
                     {
                         "name": "dateOfBirth",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "test",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
@@ -1981,16 +2029,6 @@
                     },
                     {
                         "name": "dateOfBirth",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "AWSDate",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "test",
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
@@ -2080,7 +2118,7 @@
                         "defaultValue": null
                     },
                     {
-                        "name": "numberOfTablets",
+                        "name": "availableTablets",
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
@@ -2093,13 +2131,29 @@
                         "name": "dosage",
                         "description": null,
                         "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "Int",
-                                "ofType": null
-                            }
+                            "kind": "SCALAR",
+                            "name": "Int",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "requiredTimes",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Int",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "expirationDate",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
                         },
                         "defaultValue": null
                     },
@@ -2113,6 +2167,42 @@
                                 "kind": "SCALAR",
                                 "name": "ID",
                                 "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "times",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "LIST",
+                                "name": null,
+                                "ofType": {
+                                    "kind": "SCALAR",
+                                    "name": "String",
+                                    "ofType": null
+                                }
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "dates",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "LIST",
+                                "name": null,
+                                "ofType": {
+                                    "kind": "SCALAR",
+                                    "name": "String",
+                                    "ofType": null
+                                }
                             }
                         },
                         "defaultValue": null
@@ -2149,7 +2239,7 @@
                         "defaultValue": null
                     },
                     {
-                        "name": "numberOfTablets",
+                        "name": "availableTablets",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
@@ -2169,11 +2259,51 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "requiredTimes",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelIntInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "expirationDate",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "userId",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
                             "name": "ModelIDInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "times",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "dates",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -2252,7 +2382,7 @@
                         "defaultValue": null
                     },
                     {
-                        "name": "numberOfTablets",
+                        "name": "availableTablets",
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
@@ -2272,12 +2402,60 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "requiredTimes",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Int",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "expirationDate",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "userId",
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
                             "name": "ID",
                             "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "times",
+                        "description": null,
+                        "type": {
+                            "kind": "LIST",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "dates",
+                        "description": null,
+                        "type": {
+                            "kind": "LIST",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
                         },
                         "defaultValue": null
                     },
@@ -3208,6 +3386,16 @@
                         "deprecationReason": null
                     }
                 ],
+                "possibleTypes": null
+            },
+            {
+                "kind": "SCALAR",
+                "name": "AWSDate",
+                "description": null,
+                "fields": null,
+                "inputFields": null,
+                "interfaces": null,
+                "enumValues": null,
                 "possibleTypes": null
             },
             {
