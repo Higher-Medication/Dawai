@@ -193,17 +193,6 @@ public final class Medicine implements Model {
     );
   }
   
-  public CopyOfBuilder copyOfBuilder() {
-    return new CopyOfBuilder(id,
-      name,
-      availableTablets,
-      dosage,
-      requiredTimes,
-      expirationDate,
-      user,
-      times,
-      dates);
-  }
   public interface NameStep {
     TimesStep name(String name);
   }
@@ -318,58 +307,4 @@ public final class Medicine implements Model {
   }
   
 
-  public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String name, Integer availableTablets, Integer dosage, Integer requiredTimes, String expirationDate, User user, List<String> times, List<String> dates) {
-      super.id(id);
-      super.name(name)
-        .availableTablets(availableTablets)
-        .dosage(dosage)
-        .requiredTimes(requiredTimes)
-        .expirationDate(expirationDate)
-        .user(user)
-        .times(times)
-        .dates(dates);
-    }
-    
-    @Override
-     public CopyOfBuilder name(String name) {
-      return (CopyOfBuilder) super.name(name);
-    }
-    
-    @Override
-     public CopyOfBuilder availableTablets(Integer availableTablets) {
-      return (CopyOfBuilder) super.availableTablets(availableTablets);
-    }
-    
-    @Override
-     public CopyOfBuilder dosage(Integer dosage) {
-      return (CopyOfBuilder) super.dosage(dosage);
-    }
-    
-    @Override
-     public CopyOfBuilder requiredTimes(Integer requiredTimes) {
-      return (CopyOfBuilder) super.requiredTimes(requiredTimes);
-    }
-    
-    @Override
-     public CopyOfBuilder expirationDate(String expirationDate) {
-      return (CopyOfBuilder) super.expirationDate(expirationDate);
-    }
-    
-    @Override
-     public CopyOfBuilder user(User user) {
-      return (CopyOfBuilder) super.user(user);
-    }
-    
-    @Override
-     public CopyOfBuilder times(List<String> times) {
-      return (CopyOfBuilder) super.times(times);
-    }
-    
-    @Override
-     public CopyOfBuilder dates(List<String> dates) {
-      return (CopyOfBuilder) super.dates(dates);
-    }
-  }
-  
 }
