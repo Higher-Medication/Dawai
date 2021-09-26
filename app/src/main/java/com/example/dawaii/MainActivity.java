@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     List<User> userList = new ArrayList<>();
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,10 +89,9 @@ public class MainActivity extends AppCompatActivity {
         );
 
         List<Integer> testIntervals = new ArrayList();
-        testIntervals.add(10);
+        testIntervals.add(3);
+        testIntervals.add(4);
         testIntervals.add(5);
-        testIntervals.add(30);
-        testIntervals.add(18);
 
         for (Integer testInterval : testIntervals) {
             final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class).setInitialDelay(testInterval,SECONDS).build();
