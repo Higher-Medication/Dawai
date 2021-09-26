@@ -1,8 +1,16 @@
 package com.example.dawaii;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+//import androidx.work.OneTimeWorkRequest;
+//import androidx.work.WorkManager;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,12 +18,16 @@ import android.widget.Button;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.aws.AWSApiPlugin;
+import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Date;
 import com.amplifyframework.datastore.generated.model.Medicine;
 import com.amplifyframework.datastore.generated.model.User;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     boolean isSignedIn;
     String userName;
 
+    List<User> userList = new ArrayList<>();
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,15 +53,55 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        Button getStartedBtn= findViewById(R.id.getStartedBtn);
+        Button getStartedBtn = findViewById(R.id.getStartedBtn);
 
         getStartedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToStartedActivity= new Intent(MainActivity.this , SecondActivity.class);
+                Intent goToStartedActivity = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(goToStartedActivity);
             }
         });
+
+        Amplify.API.query(
+                ModelQuery.list(User.class),
+                response -> {
+                    for (User user : response.getData()) {
+                        userList.add(user);
+                        Log.i("MyAmplifyApp", user.getName());
+                    }
+                    List<String> datesList = userList.get(2).getMeds().get(0).getDates();
+                    List<String> timesList = userList.get(2).getMeds().get(0).getTimes();
+
+                    List intervals = new ArrayList();
+                    for (String s : datesList) {
+                        for (String s1 : timesList) {
+                            String concatinate = s+"T"+s1;
+                            LocalDateTime localDateTime= LocalDateTime.parse(concatinate);
+                            long interval = localDateTime.toEpochSecond(ZoneOffset.UTC);
+                            intervals.add(interval);
+                        }
+                    }
+                    System.out.println(intervals.toString());
+//                    handler.sendEmptyMessage(1);
+                },
+                error -> Log.e("MyAmplifyApp", "Query failure", error)
+        );
+
+        List<Integer> testIntervals = new ArrayList();
+        testIntervals.add(3);
+        testIntervals.add(4);
+        testIntervals.add(5);
+
+        for (Integer testInterval : testIntervals) {
+            final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class).setInitialDelay(testInterval,SECONDS).build();
+            WorkManager.getInstance().enqueue(workRequest);
+
+        }
+
+    }
+}
+
 //        Button signInBtn = findViewById(R.id.signIn);
 //
 //        signInBtn.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
- //        User user = User.builder()
+//        User user = User.builder()
 //                .name("saify")
 //                .dateOfBirth()
 //                .meds(medicine)
@@ -82,12 +137,12 @@ public class MainActivity extends AppCompatActivity {
 //                .meds(medicine)
 //                .build();
 
-        //fetching userData
+//fetching userData
 //        Amplify.Auth.fetchAuthSession(
 //                result -> {
 //                    Log.i("AmplifyQuickstart", result.toString());
 //                    isSignedIn = result.isSignedIn();
- //
+//
 //        Button loginBtn = findViewById(R.id.loginBtn);
 //
 //        loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -119,5 +174,3 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-    }
-}
