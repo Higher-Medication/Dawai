@@ -7,12 +7,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
-import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,44 +31,59 @@ public class MainActivity extends AppCompatActivity {
             Log.e("MyAmplifyApp", "Could not initialize Amplify", error);
         }
 
-        Amplify.Auth.signInWithWebUI(
-                this,
-                result -> Log.i("AuthQuickStart", result.toString()),
-                error -> Log.e("AuthQuickStart", error.toString())
-        );
 
-        Button logout = findViewById(R.id.logout);
-        logout.setOnClickListener(v -> {
-            Amplify.Auth.signOut(
-                    () -> {
-                        Log.i("AuthQuickstart", "Signed out successfully");
-                        finish();
-                        startActivity(getIntent());
-                    },
-                    error -> Log.e("AuthQuickstart", error.toString())
-            );
+        Button getStartedBtn= findViewById(R.id.getStartedBtn);
+
+        getStartedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToStartedActivity= new Intent(MainActivity.this , SecondActivity.class);
+                startActivity(goToStartedActivity);
+            }
         });
-
-        //fetching userData
-//        Amplify.Auth.fetchAuthSession(
-//                result -> {
-//                    Log.i("AmplifyQuickstart", result.toString());
-//                    isSignedIn = result.isSignedIn();
+//        Button signInBtn = findViewById(R.id.signIn);
 //
-//                    if (isSignedIn) {
-//                        userName = Amplify.Auth.getCurrentUser().getUsername();
-////                        TextView welcome = findViewById(R.id.welcomeMsg);
-////                        welcome.setText(" هلا والله " + userName);
-////                        findViewById(R.id.login).setVisibility(View.INVISIBLE);
-////                        findViewById(R.id.logout).setVisibility(View.VISIBLE);
-//                    } else {
-////                        findViewById(R.id.logout).setVisibility(View.INVISIBLE);
-////                        findViewById(R.id.login).setVisibility(View.VISIBLE);
-//                    }
-//                },
-//                error -> Log.e("AmplifyQuickstart", error.toString())
-//        );
+//        signInBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // MOVE TO ANOTHER ACTIVITY
+//                Intent goToSignIn = new Intent(MainActivity.this, SignUp.class);
+//                startActivity(goToSignIn);
+//
+//            }
+//        });
 
+//
+//        Button loginBtn = findViewById(R.id.loginBtn);
+//
+//        loginBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // MOVE TO ANOTHER ACTIVITY
+//                Intent goToSignIn = new Intent(MainActivity.this, SignIn.class);
+//                startActivity(goToSignIn);
+//
+//            }
+//        });
+
+
+//        Button signOutBtn = findViewById(R.id.signOut);
+//        signOutBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Amplify.Auth.signOut(
+//                        () -> {
+//                            Log.i("AuthQuickstart", "Signed out successfully");
+//                            Intent sinOut = new Intent(MainActivity.this, SignIn.class);
+//                            startActivity(sinOut);
+//                        },
+//                        error -> Log.e("AuthQuickstart", error.toString())
+//                );
+//                Intent signOut = new Intent(MainActivity.this, SignIn.class);
+//                startActivity(signOut);
+//                Toast.makeText(getApplicationContext(), "Signed out successfully !", Toast.LENGTH_LONG).show();
+//            }
+//        });
 
     }
 }
