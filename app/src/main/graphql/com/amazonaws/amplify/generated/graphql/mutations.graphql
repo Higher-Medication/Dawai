@@ -11,9 +11,13 @@ mutation CreateUser(
       items {
         id
         name
-        numberOfTablets
+        availableTablets
         dosage
+        requiredTimes
+        expirationDate
         userId
+        times
+        dates
         _version
         _deleted
         _lastChangedAt
@@ -23,7 +27,6 @@ mutation CreateUser(
       nextToken
       startedAt
     }
-    test
     _version
     _deleted
     _lastChangedAt
@@ -43,9 +46,13 @@ mutation UpdateUser(
       items {
         id
         name
-        numberOfTablets
+        availableTablets
         dosage
+        requiredTimes
+        expirationDate
         userId
+        times
+        dates
         _version
         _deleted
         _lastChangedAt
@@ -55,7 +62,6 @@ mutation UpdateUser(
       nextToken
       startedAt
     }
-    test
     _version
     _deleted
     _lastChangedAt
@@ -75,9 +81,13 @@ mutation DeleteUser(
       items {
         id
         name
-        numberOfTablets
+        availableTablets
         dosage
+        requiredTimes
+        expirationDate
         userId
+        times
+        dates
         _version
         _deleted
         _lastChangedAt
@@ -87,7 +97,6 @@ mutation DeleteUser(
       nextToken
       startedAt
     }
-    test
     _version
     _deleted
     _lastChangedAt
@@ -102,8 +111,10 @@ mutation CreateMedicine(
   createMedicine(input: $input, condition: $condition) {
     id
     name
-    numberOfTablets
+    availableTablets
     dosage
+    requiredTimes
+    expirationDate
     userId
     user {
       id
@@ -113,13 +124,14 @@ mutation CreateMedicine(
         nextToken
         startedAt
       }
-      test
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
     }
+    times
+    dates
     _version
     _deleted
     _lastChangedAt
@@ -134,8 +146,10 @@ mutation UpdateMedicine(
   updateMedicine(input: $input, condition: $condition) {
     id
     name
-    numberOfTablets
+    availableTablets
     dosage
+    requiredTimes
+    expirationDate
     userId
     user {
       id
@@ -145,13 +159,14 @@ mutation UpdateMedicine(
         nextToken
         startedAt
       }
-      test
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
     }
+    times
+    dates
     _version
     _deleted
     _lastChangedAt
@@ -166,8 +181,10 @@ mutation DeleteMedicine(
   deleteMedicine(input: $input, condition: $condition) {
     id
     name
-    numberOfTablets
+    availableTablets
     dosage
+    requiredTimes
+    expirationDate
     userId
     user {
       id
@@ -177,13 +194,14 @@ mutation DeleteMedicine(
         nextToken
         startedAt
       }
-      test
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
     }
+    times
+    dates
     _version
     _deleted
     _lastChangedAt
