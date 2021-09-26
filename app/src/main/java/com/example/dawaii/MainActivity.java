@@ -1,8 +1,16 @@
 package com.example.dawaii;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+//import androidx.work.OneTimeWorkRequest;
+//import androidx.work.WorkManager;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     String userName;
 
     List<User> userList = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,13 +82,25 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                     System.out.println(intervals.toString());
-
 //                    handler.sendEmptyMessage(1);
                 },
                 error -> Log.e("MyAmplifyApp", "Query failure", error)
         );
 
+        List<Integer> testIntervals = new ArrayList();
+        testIntervals.add(10);
+        testIntervals.add(5);
+        testIntervals.add(30);
+        testIntervals.add(18);
 
+        for (Integer testInterval : testIntervals) {
+            final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class).setInitialDelay(testInterval,SECONDS).build();
+            WorkManager.getInstance().enqueue(workRequest);
+
+        }
+
+    }
+}
 
 //        Button signInBtn = findViewById(R.id.signIn);
 //
@@ -95,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        //        User user = User.builder()
+//        User user = User.builder()
 //                .name("saify")
 //                .dateOfBirth()
 //                .meds(medicine)
@@ -118,12 +137,12 @@ public class MainActivity extends AppCompatActivity {
 //                .meds(medicine)
 //                .build();
 
-        //fetching userData
+//fetching userData
 //        Amplify.Auth.fetchAuthSession(
 //                result -> {
 //                    Log.i("AmplifyQuickstart", result.toString());
 //                    isSignedIn = result.isSignedIn();
-        //
+//
 //        Button loginBtn = findViewById(R.id.loginBtn);
 //
 //        loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -155,5 +174,3 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-    }
-}
