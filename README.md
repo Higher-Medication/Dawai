@@ -1,6 +1,6 @@
 ## Dawaii 
 
-Team Name: **MedMinders**
+Team Name: **MedMinds**
 
 Team Members: 
 + Anas Al-Ramahi
