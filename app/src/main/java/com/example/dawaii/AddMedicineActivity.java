@@ -57,7 +57,6 @@ public class AddMedicineActivity extends AppCompatActivity {
 
     private TimePickerDialog.OnTimeSetListener onTimeSetListener2;
     private ArrayList<String> dosageHoursList;
-    private Button addMedicineButton;
     private EditText editTextTextDosageTimes;
     private Integer dosageNumberPerDay;
 
@@ -199,10 +198,6 @@ public class AddMedicineActivity extends AppCompatActivity {
             TextView expirationDate = findViewById(R.id.expirationDate);
             String expireDate = expirationDate.getText().toString();
 
-            List<String> times = new ArrayList();
-            times.add("21:14:00");
-            times.add("21:14:30");
-
             Amplify.Auth.fetchAuthSession(
                     result -> {
                         Log.i("AmplifyQuickstart", result.toString());
@@ -219,7 +214,7 @@ public class AddMedicineActivity extends AppCompatActivity {
                                     }
                                     Medicine medicine = Medicine.builder()
                                             .name(medName)
-                                            .times(times)
+                                            .times(dosageHoursList)
                                             .dates(getDates(startDate, endDate))
                                             .expirationDate(expireDate)
                                             .availableTablets(pills)
