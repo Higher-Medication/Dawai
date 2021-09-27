@@ -68,36 +68,32 @@ public class SignUp extends AppCompatActivity {
                             );
                             ///testtttttttt
 
+//                            List<String> times = new ArrayList();
+//                            times.add("00:00:00");
+//                            times.add("08:00:00");
+//                            times.add("18:00:00");
+//
+//                            List<String> dates = new ArrayList();
+//                            dates.add("2021-09-26");
+//                            dates.add("2021-09-27");
+//                            dates.add("2021-09-28");
 
+//                            Medicine medicine = Medicine.builder()
+//                                    .name("mansaf")
+//                                    .times(times)
+//                                    .dates(dates)
+//                                    .availableTablets(24)
+//                                    .dosage(1)
+//                                    .expirationDate("2025-09-28")
+//                                    .requiredTimes(3)
+//                                    .user(user)//signed in user***
+//                                    .build();
 
-                            List<String> times = new ArrayList();
-                            times.add("00:00:00");
-                            times.add("08:00:00");
-                            times.add("18:00:00");
-
-                            List<String> dates = new ArrayList();
-                            dates.add("2021-09-26");
-                            dates.add("2021-09-27");
-                            dates.add("2021-09-28");
-
-
-
-                            Medicine medicine = Medicine.builder()
-                                    .name("mansaf")
-                                    .times(times)
-                                    .dates(dates)
-                                    .availableTablets(24)
-                                    .dosage(1)
-                                    .expirationDate("2025-09-28")
-                                    .requiredTimes(3)
-                                    .user(user)//signed in user***
-                                    .build();
-
-                            Amplify.API.mutate(
-                                    ModelMutation.create(medicine),
-                                    response -> Log.i("MyAmplifyApp", "Added medicine with id: " + response.getData().getId()),
-                                    error -> Log.e("MyAmplifyApp", "Create failed", error)
-                            );
+//                            Amplify.API.mutate(
+//                                    ModelMutation.create(medicine),
+//                                    response -> Log.i("MyAmplifyApp", "Added medicine with id: " + response.getData().getId()),
+//                                    error -> Log.e("MyAmplifyApp", "Create failed", error)
+//                            );
 
 
                         },
