@@ -1,7 +1,7 @@
 package com.amplifyframework.datastore.generated.model;
 
-import com.amplifyframework.core.model.annotations.HasMany;
 import com.amplifyframework.core.model.temporal.Temporal;
+import com.amplifyframework.core.model.annotations.HasMany;
 
 import java.util.List;
 import java.util.UUID;
@@ -17,16 +17,14 @@ import com.amplifyframework.core.model.query.predicate.QueryField;
 
 import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
-/** This is an auto generated class representing the User type in your schema. */
+/** This is an auto generated class representing the Date type in your schema. */
 @SuppressWarnings("all")
-@ModelConfig(pluralName = "Users")
-public final class User implements Model {
-  public static final QueryField ID = field("User", "id");
-  public static final QueryField NAME = field("User", "name");
-  public static final QueryField DATE_OF_BIRTH = field("User", "dateOfBirth");
+@ModelConfig(pluralName = "Dates")
+public final class Date implements Model {
+  public static final QueryField ID = field("Date", "id");
+  public static final QueryField DATE = field("Date", "date");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String name;
-  private final @ModelField(targetType="String") String dateOfBirth;
+  private final @ModelField(targetType="AWSDate", isRequired = true) Temporal.Date date;
   private final @ModelField(targetType="Medicine") @HasMany(associatedWith = "user", type = Medicine.class) List<Medicine> meds = null;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
@@ -34,12 +32,8 @@ public final class User implements Model {
       return id;
   }
   
-  public String getName() {
-      return name;
-  }
-  
-  public String getDateOfBirth() {
-      return dateOfBirth;
+  public Temporal.Date getDate() {
+      return date;
   }
   
   public List<Medicine> getMeds() {
@@ -54,10 +48,9 @@ public final class User implements Model {
       return updatedAt;
   }
   
-  private User(String id, String name, String dateOfBirth) {
+  private Date(String id, Temporal.Date date) {
     this.id = id;
-    this.name = name;
-    this.dateOfBirth = dateOfBirth;
+    this.date = date;
   }
   
   @Override
@@ -67,12 +60,11 @@ public final class User implements Model {
       } else if(obj == null || getClass() != obj.getClass()) {
         return false;
       } else {
-      User user = (User) obj;
-      return ObjectsCompat.equals(getId(), user.getId()) &&
-              ObjectsCompat.equals(getName(), user.getName()) &&
-              ObjectsCompat.equals(getDateOfBirth(), user.getDateOfBirth()) &&
-              ObjectsCompat.equals(getCreatedAt(), user.getCreatedAt()) &&
-              ObjectsCompat.equals(getUpdatedAt(), user.getUpdatedAt());
+      Date date = (Date) obj;
+      return ObjectsCompat.equals(getId(), date.getId()) &&
+              ObjectsCompat.equals(getDate(), date.getDate()) &&
+              ObjectsCompat.equals(getCreatedAt(), date.getCreatedAt()) &&
+              ObjectsCompat.equals(getUpdatedAt(), date.getUpdatedAt());
       }
   }
   
@@ -80,8 +72,7 @@ public final class User implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getName())
-      .append(getDateOfBirth())
+      .append(getDate())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -91,17 +82,16 @@ public final class User implements Model {
   @Override
    public String toString() {
     return new StringBuilder()
-      .append("User {")
+      .append("Date {")
       .append("id=" + String.valueOf(getId()) + ", ")
-      .append("name=" + String.valueOf(getName()) + ", ")
-      .append("dateOfBirth=" + String.valueOf(getDateOfBirth()) + ", ")
+      .append("date=" + String.valueOf(getDate()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
       .toString();
   }
   
-  public static NameStep builder() {
+  public static DateStep builder() {
       return new Builder();
   }
   
@@ -114,7 +104,7 @@ public final class User implements Model {
    * @return an instance of this model with only ID populated
    * @throws IllegalArgumentException Checks that ID is in the proper format
    */
-  public static User justId(String id) {
+  public static Date justId(String id) {
     try {
       UUID.fromString(id); // Check that ID is in the UUID format - if not an exception is thrown
     } catch (Exception exception) {
@@ -124,54 +114,43 @@ public final class User implements Model {
               "creating a new object, use the standard builder method and leave the ID field blank."
       );
     }
-    return new User(
+    return new Date(
       id,
-      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      name,
-      dateOfBirth);
+      date);
   }
-  public interface NameStep {
-    BuildStep name(String name);
+  public interface DateStep {
+    BuildStep date(Temporal.Date date);
   }
   
 
   public interface BuildStep {
-    User build();
+    Date build();
     BuildStep id(String id) throws IllegalArgumentException;
-    BuildStep dateOfBirth(String dateOfBirth);
   }
   
 
-  public static class Builder implements NameStep, BuildStep {
+  public static class Builder implements DateStep, BuildStep {
     private String id;
-    private String name;
-    private String dateOfBirth;
+    private Temporal.Date date;
     @Override
-     public User build() {
+     public Date build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
         
-        return new User(
+        return new Date(
           id,
-          name,
-          dateOfBirth);
+          date);
     }
     
     @Override
-     public BuildStep name(String name) {
-        Objects.requireNonNull(name);
-        this.name = name;
-        return this;
-    }
-    
-    @Override
-     public BuildStep dateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+     public BuildStep date(Temporal.Date date) {
+        Objects.requireNonNull(date);
+        this.date = date;
         return this;
     }
     
@@ -187,20 +166,14 @@ public final class User implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String name, String dateOfBirth) {
+    private CopyOfBuilder(String id, Temporal.Date date) {
       super.id(id);
-      super.name(name)
-        .dateOfBirth(dateOfBirth);
+      super.date(date);
     }
     
     @Override
-     public CopyOfBuilder name(String name) {
-      return (CopyOfBuilder) super.name(name);
-    }
-    
-    @Override
-     public CopyOfBuilder dateOfBirth(String dateOfBirth) {
-      return (CopyOfBuilder) super.dateOfBirth(dateOfBirth);
+     public CopyOfBuilder date(Temporal.Date date) {
+      return (CopyOfBuilder) super.date(date);
     }
   }
   

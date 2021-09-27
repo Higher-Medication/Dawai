@@ -24,14 +24,22 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 public final class Medicine implements Model {
   public static final QueryField ID = field("Medicine", "id");
   public static final QueryField NAME = field("Medicine", "name");
-  public static final QueryField NUMBER_OF_TABLETS = field("Medicine", "numberOfTablets");
+  public static final QueryField AVAILABLE_TABLETS = field("Medicine", "availableTablets");
   public static final QueryField DOSAGE = field("Medicine", "dosage");
+  public static final QueryField REQUIRED_TIMES = field("Medicine", "requiredTimes");
+  public static final QueryField EXPIRATION_DATE = field("Medicine", "expirationDate");
   public static final QueryField USER = field("Medicine", "userId");
+  public static final QueryField TIMES = field("Medicine", "times");
+  public static final QueryField DATES = field("Medicine", "dates");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String name;
-  private final @ModelField(targetType="Int") Integer numberOfTablets;
-  private final @ModelField(targetType="Int", isRequired = true) Integer dosage;
+  private final @ModelField(targetType="Int") Integer availableTablets;
+  private final @ModelField(targetType="Int") Integer dosage;
+  private final @ModelField(targetType="Int") Integer requiredTimes;
+  private final @ModelField(targetType="String") String expirationDate;
   private final @ModelField(targetType="User") @BelongsTo(targetName = "userId", type = User.class) User user;
+  private final @ModelField(targetType="String", isRequired = true) List<String> times;
+  private final @ModelField(targetType="String", isRequired = true) List<String> dates;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
@@ -42,16 +50,32 @@ public final class Medicine implements Model {
       return name;
   }
   
-  public Integer getNumberOfTablets() {
-      return numberOfTablets;
+  public Integer getAvailableTablets() {
+      return availableTablets;
   }
   
   public Integer getDosage() {
       return dosage;
   }
   
+  public Integer getRequiredTimes() {
+      return requiredTimes;
+  }
+  
+  public String getExpirationDate() {
+      return expirationDate;
+  }
+  
   public User getUser() {
       return user;
+  }
+  
+  public List<String> getTimes() {
+      return times;
+  }
+  
+  public List<String> getDates() {
+      return dates;
   }
   
   public Temporal.DateTime getCreatedAt() {
@@ -62,12 +86,16 @@ public final class Medicine implements Model {
       return updatedAt;
   }
   
-  private Medicine(String id, String name, Integer numberOfTablets, Integer dosage, User user) {
+  private Medicine(String id, String name, Integer availableTablets, Integer dosage, Integer requiredTimes, String expirationDate, User user, List<String> times, List<String> dates) {
     this.id = id;
     this.name = name;
-    this.numberOfTablets = numberOfTablets;
+    this.availableTablets = availableTablets;
     this.dosage = dosage;
+    this.requiredTimes = requiredTimes;
+    this.expirationDate = expirationDate;
     this.user = user;
+    this.times = times;
+    this.dates = dates;
   }
   
   @Override
@@ -80,9 +108,13 @@ public final class Medicine implements Model {
       Medicine medicine = (Medicine) obj;
       return ObjectsCompat.equals(getId(), medicine.getId()) &&
               ObjectsCompat.equals(getName(), medicine.getName()) &&
-              ObjectsCompat.equals(getNumberOfTablets(), medicine.getNumberOfTablets()) &&
+              ObjectsCompat.equals(getAvailableTablets(), medicine.getAvailableTablets()) &&
               ObjectsCompat.equals(getDosage(), medicine.getDosage()) &&
+              ObjectsCompat.equals(getRequiredTimes(), medicine.getRequiredTimes()) &&
+              ObjectsCompat.equals(getExpirationDate(), medicine.getExpirationDate()) &&
               ObjectsCompat.equals(getUser(), medicine.getUser()) &&
+              ObjectsCompat.equals(getTimes(), medicine.getTimes()) &&
+              ObjectsCompat.equals(getDates(), medicine.getDates()) &&
               ObjectsCompat.equals(getCreatedAt(), medicine.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), medicine.getUpdatedAt());
       }
@@ -93,9 +125,13 @@ public final class Medicine implements Model {
     return new StringBuilder()
       .append(getId())
       .append(getName())
-      .append(getNumberOfTablets())
+      .append(getAvailableTablets())
       .append(getDosage())
+      .append(getRequiredTimes())
+      .append(getExpirationDate())
       .append(getUser())
+      .append(getTimes())
+      .append(getDates())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -108,9 +144,13 @@ public final class Medicine implements Model {
       .append("Medicine {")
       .append("id=" + String.valueOf(getId()) + ", ")
       .append("name=" + String.valueOf(getName()) + ", ")
-      .append("numberOfTablets=" + String.valueOf(getNumberOfTablets()) + ", ")
+      .append("availableTablets=" + String.valueOf(getAvailableTablets()) + ", ")
       .append("dosage=" + String.valueOf(getDosage()) + ", ")
+      .append("requiredTimes=" + String.valueOf(getRequiredTimes()) + ", ")
+      .append("expirationDate=" + String.valueOf(getExpirationDate()) + ", ")
       .append("user=" + String.valueOf(getUser()) + ", ")
+      .append("times=" + String.valueOf(getTimes()) + ", ")
+      .append("dates=" + String.valueOf(getDates()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -145,40 +185,49 @@ public final class Medicine implements Model {
       null,
       null,
       null,
+      null,
+      null,
+      null,
+      null,
       null
     );
   }
   
-  public CopyOfBuilder copyOfBuilder() {
-    return new CopyOfBuilder(id,
-      name,
-      numberOfTablets,
-      dosage,
-      user);
-  }
   public interface NameStep {
-    DosageStep name(String name);
+    TimesStep name(String name);
   }
   
 
-  public interface DosageStep {
-    BuildStep dosage(Integer dosage);
+  public interface TimesStep {
+    DatesStep times(List<String> times);
+  }
+  
+
+  public interface DatesStep {
+    BuildStep dates(List<String> dates);
   }
   
 
   public interface BuildStep {
     Medicine build();
     BuildStep id(String id) throws IllegalArgumentException;
-    BuildStep numberOfTablets(Integer numberOfTablets);
+    BuildStep availableTablets(Integer availableTablets);
+    BuildStep dosage(Integer dosage);
+    BuildStep requiredTimes(Integer requiredTimes);
+    BuildStep expirationDate(String expirationDate);
     BuildStep user(User user);
   }
   
 
-  public static class Builder implements NameStep, DosageStep, BuildStep {
+  public static class Builder implements NameStep, TimesStep, DatesStep, BuildStep {
     private String id;
     private String name;
+    private List<String> times;
+    private List<String> dates;
+    private Integer availableTablets;
     private Integer dosage;
-    private Integer numberOfTablets;
+    private Integer requiredTimes;
+    private String expirationDate;
     private User user;
     @Override
      public Medicine build() {
@@ -187,28 +236,57 @@ public final class Medicine implements Model {
         return new Medicine(
           id,
           name,
-          numberOfTablets,
+          availableTablets,
           dosage,
-          user);
+          requiredTimes,
+          expirationDate,
+          user,
+          times,
+          dates);
     }
     
     @Override
-     public DosageStep name(String name) {
+     public TimesStep name(String name) {
         Objects.requireNonNull(name);
         this.name = name;
         return this;
     }
     
     @Override
+     public DatesStep times(List<String> times) {
+        Objects.requireNonNull(times);
+        this.times = times;
+        return this;
+    }
+    
+    @Override
+     public BuildStep dates(List<String> dates) {
+        Objects.requireNonNull(dates);
+        this.dates = dates;
+        return this;
+    }
+    
+    @Override
+     public BuildStep availableTablets(Integer availableTablets) {
+        this.availableTablets = availableTablets;
+        return this;
+    }
+    
+    @Override
      public BuildStep dosage(Integer dosage) {
-        Objects.requireNonNull(dosage);
         this.dosage = dosage;
         return this;
     }
     
     @Override
-     public BuildStep numberOfTablets(Integer numberOfTablets) {
-        this.numberOfTablets = numberOfTablets;
+     public BuildStep requiredTimes(Integer requiredTimes) {
+        this.requiredTimes = requiredTimes;
+        return this;
+    }
+    
+    @Override
+     public BuildStep expirationDate(String expirationDate) {
+        this.expirationDate = expirationDate;
         return this;
     }
     
@@ -229,34 +307,4 @@ public final class Medicine implements Model {
   }
   
 
-  public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String name, Integer numberOfTablets, Integer dosage, User user) {
-      super.id(id);
-      super.name(name)
-        .dosage(dosage)
-        .numberOfTablets(numberOfTablets)
-        .user(user);
-    }
-    
-    @Override
-     public CopyOfBuilder name(String name) {
-      return (CopyOfBuilder) super.name(name);
-    }
-    
-    @Override
-     public CopyOfBuilder dosage(Integer dosage) {
-      return (CopyOfBuilder) super.dosage(dosage);
-    }
-    
-    @Override
-     public CopyOfBuilder numberOfTablets(Integer numberOfTablets) {
-      return (CopyOfBuilder) super.numberOfTablets(numberOfTablets);
-    }
-    
-    @Override
-     public CopyOfBuilder user(User user) {
-      return (CopyOfBuilder) super.user(user);
-    }
-  }
-  
 }

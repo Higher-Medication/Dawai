@@ -8,9 +8,13 @@ subscription OnCreateUser {
       items {
         id
         name
-        numberOfTablets
+        availableTablets
         dosage
+        requiredTimes
+        expirationDate
         userId
+        times
+        dates
         _version
         _deleted
         _lastChangedAt
@@ -20,7 +24,6 @@ subscription OnCreateUser {
       nextToken
       startedAt
     }
-    test
     _version
     _deleted
     _lastChangedAt
@@ -37,9 +40,13 @@ subscription OnUpdateUser {
       items {
         id
         name
-        numberOfTablets
+        availableTablets
         dosage
+        requiredTimes
+        expirationDate
         userId
+        times
+        dates
         _version
         _deleted
         _lastChangedAt
@@ -49,7 +56,6 @@ subscription OnUpdateUser {
       nextToken
       startedAt
     }
-    test
     _version
     _deleted
     _lastChangedAt
@@ -66,9 +72,13 @@ subscription OnDeleteUser {
       items {
         id
         name
-        numberOfTablets
+        availableTablets
         dosage
+        requiredTimes
+        expirationDate
         userId
+        times
+        dates
         _version
         _deleted
         _lastChangedAt
@@ -78,7 +88,6 @@ subscription OnDeleteUser {
       nextToken
       startedAt
     }
-    test
     _version
     _deleted
     _lastChangedAt
@@ -90,8 +99,10 @@ subscription OnCreateMedicine {
   onCreateMedicine {
     id
     name
-    numberOfTablets
+    availableTablets
     dosage
+    requiredTimes
+    expirationDate
     userId
     user {
       id
@@ -101,13 +112,14 @@ subscription OnCreateMedicine {
         nextToken
         startedAt
       }
-      test
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
     }
+    times
+    dates
     _version
     _deleted
     _lastChangedAt
@@ -119,8 +131,10 @@ subscription OnUpdateMedicine {
   onUpdateMedicine {
     id
     name
-    numberOfTablets
+    availableTablets
     dosage
+    requiredTimes
+    expirationDate
     userId
     user {
       id
@@ -130,13 +144,14 @@ subscription OnUpdateMedicine {
         nextToken
         startedAt
       }
-      test
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
     }
+    times
+    dates
     _version
     _deleted
     _lastChangedAt
@@ -148,8 +163,10 @@ subscription OnDeleteMedicine {
   onDeleteMedicine {
     id
     name
-    numberOfTablets
+    availableTablets
     dosage
+    requiredTimes
+    expirationDate
     userId
     user {
       id
@@ -159,13 +176,14 @@ subscription OnDeleteMedicine {
         nextToken
         startedAt
       }
-      test
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
     }
+    times
+    dates
     _version
     _deleted
     _lastChangedAt

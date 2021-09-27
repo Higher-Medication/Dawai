@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dawaii">
+        <activity android:name=".AddMedicineActivity"></activity>
         <activity
             android:name=".CalendarDetails"
             android:exported="true" />

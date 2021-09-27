@@ -19,7 +19,6 @@ query SyncUsers(
         nextToken
         startedAt
       }
-      test
       _version
       _deleted
       _lastChangedAt
@@ -39,9 +38,13 @@ query GetUser($id: ID!) {
       items {
         id
         name
-        numberOfTablets
+        availableTablets
         dosage
+        requiredTimes
+        expirationDate
         userId
+        times
+        dates
         _version
         _deleted
         _lastChangedAt
@@ -51,7 +54,6 @@ query GetUser($id: ID!) {
       nextToken
       startedAt
     }
-    test
     _version
     _deleted
     _lastChangedAt
@@ -73,7 +75,6 @@ query ListUsers(
         nextToken
         startedAt
       }
-      test
       _version
       _deleted
       _lastChangedAt
@@ -99,20 +100,23 @@ query SyncMedicines(
     items {
       id
       name
-      numberOfTablets
+      availableTablets
       dosage
+      requiredTimes
+      expirationDate
       userId
       user {
         id
         name
         dateOfBirth
-        test
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
       }
+      times
+      dates
       _version
       _deleted
       _lastChangedAt
@@ -127,8 +131,10 @@ query GetMedicine($id: ID!) {
   getMedicine(id: $id) {
     id
     name
-    numberOfTablets
+    availableTablets
     dosage
+    requiredTimes
+    expirationDate
     userId
     user {
       id
@@ -138,13 +144,14 @@ query GetMedicine($id: ID!) {
         nextToken
         startedAt
       }
-      test
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
     }
+    times
+    dates
     _version
     _deleted
     _lastChangedAt
@@ -161,20 +168,23 @@ query ListMedicines(
     items {
       id
       name
-      numberOfTablets
+      availableTablets
       dosage
+      requiredTimes
+      expirationDate
       userId
       user {
         id
         name
         dateOfBirth
-        test
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
       }
+      times
+      dates
       _version
       _deleted
       _lastChangedAt
