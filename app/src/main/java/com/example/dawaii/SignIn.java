@@ -42,7 +42,7 @@ public class SignIn extends AppCompatActivity {
                         },
                         error -> {
                             Log.e("AuthQuickstart", error.toString());
-                            Toast.makeText(getApplicationContext(), "Enter the correct password!", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getApplicationContext(), "Enter the correct password!", Toast.LENGTH_LONG).show();
                         }
                 );
             }

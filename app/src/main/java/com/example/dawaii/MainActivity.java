@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                             String concatinate = s + "T" + s1;
                             LocalDateTime localDateTime = LocalDateTime.parse(concatinate);
                             long interval = localDateTime.toEpochSecond(ZoneOffset.UTC);
+                            /// minus the now(in seconds)
                             intervals.add(interval);
                         }
                     }
