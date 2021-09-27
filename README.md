@@ -1,6 +1,6 @@
 ## Dawaii 
 
-Team Name: **Overdose**
+Team Name: **MedMinders**
 
 Team Members: 
 + Anas Al-Ramahi
