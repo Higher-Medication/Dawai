@@ -37,7 +37,7 @@ public class SignIn extends AppCompatActivity {
                         password,
                         result -> {
                             Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
-                            Intent goToMainActivity = new Intent(SignIn.this,MainActivity.class);
+                            Intent goToMainActivity = new Intent(SignIn.this,Calendar.class);
                             startActivity(goToMainActivity);
                         },
                         error -> {
@@ -49,7 +49,7 @@ public class SignIn extends AppCompatActivity {
         });
 
 //        Button RegisterBtn = findViewById(R.id.RegisterBtn);
-//        RegisterBtn.setOnClickListener(new View.OnClickListener() {
+//        RegisterBtn.setOnClickListener(new View.OnClickListener() {buttonSignIn
 //            @Override
 //            public void onClick(View view) {
 //                Intent goToSignUpActivity = new Intent(SignIn.this,SignUp.class);

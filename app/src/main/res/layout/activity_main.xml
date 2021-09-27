@@ -29,6 +29,23 @@
         app:lottie_autoPlay="true"
         app:lottie_rawRes="@raw/firstsplash" />
 
+    <!--    <Button-->
+<!--        android:id="@+id/getStartedBtn"-->
+<!--        style="@style/Widget.AppCompat.Button"-->
+<!--        android:layout_width="141dp"-->
+<!--        android:layout_height="41dp"-->
+<!--        android:layout_marginBottom="28dp"-->
+<!--        android:backgroundTint="#00BCD4"-->
+<!--        android:textColor="@color/white"-->
+
+<!--        android:text="Get Started"-->
+<!--        app:iconTintMode="screen"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text2"-->
+<!--        app:layout_constraintVertical_bias="0.279" />-->
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="181dp"
@@ -46,43 +63,26 @@
         android:id="@+id/text2"
         android:layout_width="348dp"
         android:layout_height="56dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="44dp"
         android:text="here our virtual nurse will help you to remember your pills, and ensure you take it in the correct date."
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-<!--    <Button-->
-<!--        android:id="@+id/getStartedBtn"-->
-<!--        style="@style/Widget.AppCompat.Button"-->
-<!--        android:layout_width="141dp"-->
-<!--        android:layout_height="41dp"-->
-<!--        android:layout_marginBottom="28dp"-->
-<!--        android:backgroundTint="#00BCD4"-->
-<!--        android:textColor="@color/white"-->
-
-<!--        android:text="Get Started"-->
-<!--        app:iconTintMode="screen"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/text2"-->
-<!--        app:layout_constraintVertical_bias="0.279" />-->
+        app:layout_constraintTop_toBottomOf="@+id/lottie1" />
 
     <Button
         android:id="@+id/getStartedBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="144dp"
+        android:layout_width="309dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="68dp"
         android:backgroundTint="@color/pink"
         android:text="Get Started "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text2"
-        app:layout_constraintVertical_bias="0.318" />
+        app:layout_constraintTop_toBottomOf="@+id/lottie1"
+        app:layout_constraintVertical_bias="0.89" />
 
 
     <!--    <Button-->
