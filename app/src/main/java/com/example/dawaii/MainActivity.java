@@ -57,50 +57,50 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Amplify.API.query(
-                ModelQuery.list(User.class),
-                response -> {
-                    for (User user : response.getData()) {
-                        userList.add(user);
-                        Log.i("MyAmplifyApp", user.getName());
-                    }
-                    List<String> datesList = userList.get(2).getMeds().get(0).getDates();
-                    List<String> timesList = userList.get(2).getMeds().get(0).getTimes();
-
-                    List intervals = new ArrayList();
-                    for (String s : datesList) {
-                        for (String s1 : timesList) {
-                            String concatinate = s + "T" + s1;
-                            LocalDateTime localDateTime = LocalDateTime.parse(concatinate);
-                            long interval = localDateTime.toEpochSecond(ZoneOffset.UTC);
-                            /// minus the now(in seconds)
-                            intervals.add(interval);
-                        }
-                    }
-                    System.out.println(intervals.toString());
-//                    handler.sendEmptyMessage(1);
-                },
-                error -> Log.e("MyAmplifyApp", "Query failure", error)
-        );
-
-        List<Integer> testIntervals = new ArrayList();
-        testIntervals.add(5);
-        testIntervals.add(15);
-        testIntervals.add(30);
+//        Amplify.API.query(
+//                ModelQuery.list(User.class),
+//                response -> {
+//                    for (User user : response.getData()) {
+//                        userList.add(user);
+//                        Log.i("MyAmplifyApp", user.getName());
+//                    }
+//                    List<String> datesList = userList.get(2).getMeds().get(0).getDates();
+//                    List<String> timesList = userList.get(2).getMeds().get(0).getTimes();
+//
+//                    List intervals = new ArrayList();
+//                    for (String s : datesList) {
+//                        for (String s1 : timesList) {
+//                            String concatinate = s + "T" + s1;
+//                            LocalDateTime localDateTime = LocalDateTime.parse(concatinate);
+//                            long interval = localDateTime.toEpochSecond(ZoneOffset.UTC);
+//                            /// minus the now(in seconds)
+//                            intervals.add(interval);
+//                        }
+//                    }
+//                    System.out.println(intervals.toString());
+////                    handler.sendEmptyMessage(1);
+//                },
+//                error -> Log.e("MyAmplifyApp", "Query failure", error)
+//        );
+//
+//        List<Integer> testIntervals = new ArrayList();
+//        testIntervals.add(5);
+//        testIntervals.add(15);
+//        testIntervals.add(30);
 
 //        Constraints constraints = new Constraints.Builder()
 //                .setRequiredNetworkType(NetworkType.NOT_REQUIRED)
 //                .setRequiresCharging(false)
 //                .build();
 
-        for (Integer testInterval : testIntervals) {
-
-            final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class)
-                    .setInitialDelay(testInterval, SECONDS)
-                    .build();
-            WorkManager.getInstance().enqueue(workRequest);
-
-        }
+//        for (Integer testInterval : testIntervals) {
+//
+//            final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class)
+//                    .setInitialDelay(testInterval, SECONDS)
+//                    .build();
+//            WorkManager.getInstance().enqueue(workRequest);
+//
+//        }
 
         Button testButton=findViewById(R.id.TestButton);
         testButton.setOnClickListener(view -> {
@@ -146,41 +146,3 @@ public class MainActivity extends AppCompatActivity {
 //                .date()
 //                .meds(medicine)
 //                .build();
-
-//fetching userData
-//        Amplify.Auth.fetchAuthSession(
-//                result -> {
-//                    Log.i("AmplifyQuickstart", result.toString());
-//                    isSignedIn = result.isSignedIn();
-//
-//        Button loginBtn = findViewById(R.id.loginBtn);
-//
-//        loginBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // MOVE TO ANOTHER ACTIVITY
-//                Intent goToSignIn = new Intent(MainActivity.this, SignIn.class);
-//                startActivity(goToSignIn);
-//
-//            }
-//        });
-
-
-//        Button signOutBtn = findViewById(R.id.signOut);
-//        signOutBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Amplify.Auth.signOut(
-//                        () -> {
-//                            Log.i("AuthQuickstart", "Signed out successfully");
-//                            Intent sinOut = new Intent(MainActivity.this, SignIn.class);
-//                            startActivity(sinOut);
-//                        },
-//                        error -> Log.e("AuthQuickstart", error.toString())
-//                );
-//                Intent signOut = new Intent(MainActivity.this, SignIn.class);
-//                startActivity(signOut);
-//                Toast.makeText(getApplicationContext(), "Signed out successfully !", Toast.LENGTH_LONG).show();
-//            }
-//        });
-
