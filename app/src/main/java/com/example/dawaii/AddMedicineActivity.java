@@ -6,16 +6,20 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
@@ -51,11 +55,59 @@ public class AddMedicineActivity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener onDateSetListener2;
     private DatePickerDialog.OnDateSetListener onDateSetListener3;
 
+    private TimePickerDialog.OnTimeSetListener onTimeSetListener2;
+    private ArrayList<String> dosageHoursList;
+    private Button addMedicineButton;
+    private EditText editTextTextDosageTimes;
+    private Integer dosageNumberPerDay;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_medicine);
+
+        editTextTextDosageTimes = findViewById(R.id.editTextTextDosageTimes);
+        editTextTextDosageTimes.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                Log.d(TAG, "afterTextChanged: " + editable);
+                if (!editable.toString().equals("")) {
+                    dosageHoursList = new ArrayList<>();
+                    dosageNumberPerDay = Integer.parseInt(editable.toString());
+
+                    for (int i = 0; i < dosageNumberPerDay; i++) {
+                        Calendar cal = Calendar.getInstance();
+                        int hour = cal.get(Calendar.HOUR_OF_DAY);
+                        int minute = cal.get(Calendar.MINUTE);
+
+                        TimePickerDialog dialog = new TimePickerDialog(AddMedicineActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, onTimeSetListener2, hour, minute, false);
+                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                        dialog.show();
+                    }
+                }
+            }
+        });
+
+        onTimeSetListener2 = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                Log.d(TAG, "Last-onTimeSet: " + hour + ":" + minute);
+                String time = hour + ":" + minute + ":00" ;
+                dosageHoursList.add(time);
+            }
+        };
 
         startDate = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(new Date());
         displayStartDate = findViewById(R.id.startDateTextView);
@@ -190,7 +242,7 @@ public class AddMedicineActivity extends AppCompatActivity {
             for (String s : getDates(startDate, endDate)) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
                 LocalDate localDate = LocalDate.parse(s, formatter);
-                for (String s1 : times) {
+                for (String s1 : dosageHoursList) {
                     String concatinate = localDate.toString() + "T" + s1;
                     LocalDateTime localDateTime = LocalDateTime.parse(concatinate);
                     long interval = localDateTime.toEpochSecond(ZoneOffset.UTC);
