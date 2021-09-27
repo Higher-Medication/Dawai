@@ -3,25 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.202734375" />
         <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/drawable/button_bg.xml" value="0.2703125" />
         <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/drawable/edit_text_bg.xml" value="0.1" />
+        <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/drawable/ic_launcher_background.xml" value="0.202734375" />
         <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/drawable/view_bg.xml" value="0.1" />
-        <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/activity_calendar.xml" value="0.264" />
+        <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/activity_add_medicine.xml" value="0.16" />
+        <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/activity_calendar.xml" value="0.2" />
         <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/activity_confirm_reset_password.xml" value="0.264" />
         <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/activity_confirm_sign_up.xml" value="0.264" />
         <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/activity_forgot_password.xml" value="0.264" />
         <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/activity_second.xml" value="0.264" />
-        <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/activity_sign_in.xml" value="0.264" />
+        <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/activity_sign_in.xml" value="0.2" />
         <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
         <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/activity_signup_tab_fragment.xml" value="0.2" />
         <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/login_tab_fragment.xml" value="0.22447916666666667" />
         <entry key="..\:/ASAC/401/Android/Dawai/app/src/main/res/layout/signup_tab_fragment.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/USER/Desktop/amplifytest/Dawai/app/src/main/res/layout/activity_add_medicine.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/USER/Desktop/amplifytest/Dawai/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/USER/Desktop/amplifytest/Dawai/app/src/main/res/layout/activity_second.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/USER/Desktop/amplifytest/Dawai/app/src/main/res/layout/activity_sign_in.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/USER/Desktop/amplifytest/Dawai/app/src/main/res/layout/activity_sign_up.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

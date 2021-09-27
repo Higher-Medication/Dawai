@@ -64,21 +64,21 @@ public class MainActivity extends AppCompatActivity {
                         userList.add(user);
                         Log.i("MyAmplifyApp", user.getName());
                     }
-                    List<String> datesList = userList.get(2).getMeds().get(0).getDates();
-                    List<String> timesList = userList.get(2).getMeds().get(0).getTimes();
+//                    List<String> datesList = userList.get(2).getMeds().get(0).getDates();
+//                    List<String> timesList = userList.get(2).getMeds().get(0).getTimes();
 
-                    List intervals = new ArrayList();
-                    for (String s : datesList) {
-                        for (String s1 : timesList) {
-                            String concatinate = s + "T" + s1;
-                            LocalDateTime localDateTime = LocalDateTime.parse(concatinate);
-                            long interval = localDateTime.toEpochSecond(ZoneOffset.UTC);
-                            /// minus the now(in seconds)
-                            intervals.add(interval);
-                        }
-                    }
-                    System.out.println(intervals.toString());
-//                    handler.sendEmptyMessage(1);
+//                    List intervals = new ArrayList();
+//                    for (String s : datesList) {
+//                        for (String s1 : timesList) {
+//                            String concatinate = s + "T" + s1;
+//                            LocalDateTime localDateTime = LocalDateTime.parse(concatinate);
+//                            long interval = localDateTime.toEpochSecond(ZoneOffset.UTC);
+//                            /// minus the now(in seconds)
+//                            intervals.add(interval);
+//                        }
+//                    }
+//                    System.out.println(intervals.toString());
+////                    handler.sendEmptyMessage(1);
                 },
                 error -> Log.e("MyAmplifyApp", "Query failure", error)
         );
@@ -93,18 +93,18 @@ public class MainActivity extends AppCompatActivity {
 //                .setRequiresCharging(false)
 //                .build();
 
-        for (Integer testInterval : testIntervals) {
-
-            final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class)
-                    .setInitialDelay(testInterval, SECONDS)
-                    .build();
-            WorkManager.getInstance().enqueue(workRequest);
-
-        }
+//        for (Integer testInterval : testIntervals) {
+//
+//            final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class)
+//                    .setInitialDelay(testInterval, SECONDS)
+//                    .build();
+//            WorkManager.getInstance().enqueue(workRequest);
+//
+//        }
 
         Button testButton=findViewById(R.id.TestButton);
         testButton.setOnClickListener(view -> {
-            Intent intent=new Intent(MainActivity.this,AddMedicineActivity.class);
+            Intent intent=new Intent(MainActivity.this,Calendar.class);
             startActivity(intent);
         });
 
