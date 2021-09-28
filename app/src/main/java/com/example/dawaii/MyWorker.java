@@ -9,7 +9,6 @@ import androidx.core.app.NotificationCompat;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
-
 public class MyWorker extends Worker {
 
     public MyWorker(@NonNull Context context, @NonNull WorkerParameters workerParams) {
