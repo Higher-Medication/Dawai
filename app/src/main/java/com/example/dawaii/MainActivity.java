@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         Button testButton = findViewById(R.id.TestButton);
         testButton.setOnClickListener(view -> {
 //            Intent intent=new Intent(MainActivity.this,AddMedicineActivity.class);
-            Intent intent = new Intent(MainActivity.this, Profile.class);
+            Intent intent = new Intent(MainActivity.this, Calendar.class);
             startActivity(intent);
         });
     }
