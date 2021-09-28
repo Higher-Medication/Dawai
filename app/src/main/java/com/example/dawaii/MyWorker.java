@@ -12,10 +12,10 @@ import androidx.core.app.NotificationCompat;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
 
 public class MyWorker extends Worker {
 int counter = 0;

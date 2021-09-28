@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.dawaii" >
+    package="com.example.dawaii">
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
@@ -13,28 +13,53 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dawaii" >
 
-        <activity android:name=".AddMedicineActivity" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".AddMedicineActivity" />
+        <activity
+            android:name=".CalendarDetails"
+            android:exported="true" />
+        <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
+            android:name=".Calendar"
+            android:exported="true" />
+        <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
             android:name=".SecondActivity"
             android:exported="true" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
             android:name=".ConfirmResetPassword"
             android:exported="true" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
             android:name=".ForgotPassword"
             android:exported="true" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
             android:name=".SignIn"
             android:exported="true" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
             android:name=".ConfirmSignUp"
             android:exported="true" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
             android:name=".SignUp"
             android:exported="true" />
+
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,7 +68,7 @@
         </activity>
         <activity
             android:name="com.amplifyframework.auth.cognito.activities.HostedUIRedirectActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

@@ -59,7 +59,6 @@ public class AddMedicineActivity extends AppCompatActivity {
 
     private TimePickerDialog.OnTimeSetListener onTimeSetListener2;
     private ArrayList<String> dosageHoursList;
-    private Button addMedicineButton;
     private EditText editTextTextDosageTimes;
     private Integer dosageNumberPerDay;
 
@@ -94,7 +93,7 @@ public class AddMedicineActivity extends AppCompatActivity {
                         int hour = cal.get(Calendar.HOUR_OF_DAY);
                         int minute = cal.get(Calendar.MINUTE);
 
-                        TimePickerDialog dialog = new TimePickerDialog(AddMedicineActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, onTimeSetListener2, hour, minute, false);
+                        TimePickerDialog dialog = new TimePickerDialog(AddMedicineActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, onTimeSetListener2, hour, minute, true);
                         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                         dialog.show();
                     }
@@ -106,7 +105,8 @@ public class AddMedicineActivity extends AppCompatActivity {
             @Override
             public void onTimeSet(TimePicker timePicker, int hour, int minute) {
                 Log.d(TAG, "Last-onTimeSet: " + hour + ":" + minute);
-                if(hour<10){
+
+                if (hour<10){
                     String time = "0"+hour + ":" + minute + ":00" ;
                     dosageHoursList.add(time);
                 }else {
@@ -200,19 +200,14 @@ public class AddMedicineActivity extends AppCompatActivity {
             TextView dosage = findViewById(R.id.tabletsTextInput);
             Integer numberOfTablets = Integer.parseInt(String.valueOf(dosage.getText()));
 
-            TextView tabletsTimePerDayTextInput = findViewById(R.id.tabletsTimePerDayTextInput);
-            Integer tabletsTimePerDay = Integer.parseInt(String.valueOf(tabletsTimePerDayTextInput.getText()));
+
 
             TextView expirationDate = findViewById(R.id.expirationDate);
             String expireDate = expirationDate.getText().toString();
 
-            List<String> times = new ArrayList();
-            times.add("21:14:00");
-            times.add("21:14:30");
-
             Amplify.Auth.fetchAuthSession(
                     result -> {
-                        Log.i("AmplifyQuickstart", result.toString());
+                        Log.i("medicineNameInput", result.toString());
                         userName = Amplify.Auth.getCurrentUser().getUsername();
 
                         Amplify.API.query(
@@ -221,18 +216,15 @@ public class AddMedicineActivity extends AppCompatActivity {
                                     Log.i("TestLogin", response.getData().toString());
                                     for (User item : response.getData().getItems()) {
                                         currentUser = item;
-                                        System.out.println("currentUser " + currentUser);
-                                        System.out.println("currentUser  userName" + userName);
                                     }
                                     Medicine medicine = Medicine.builder()
                                             .name(medName)
-                                            .times(times)
+                                            .times(dosageHoursList)
                                             .dates(getDates(startDate, endDate))
                                             .expirationDate(expireDate)
                                             .availableTablets(pills)
                                             .user(currentUser)
                                             .dosage(numberOfTablets)
-                                            .requiredTimes(tabletsTimePerDay)
                                             .build();
                                     Amplify.API.mutate(
                                             ModelMutation.create(medicine),

@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
 //        Amplify.API.query(
 //                ModelQuery.list(User.class),
 //                response -> {
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
 //                    }
 //                    System.out.println(intervals.toString());
 ////                    handler.sendEmptyMessage(1);
+
 //                },
 //                error -> Log.e("MyAmplifyApp", "Query failure", error)
 //        );
@@ -102,9 +104,9 @@ public class MainActivity extends AppCompatActivity {
 //
 //        }
 
-        Button testButton=findViewById(R.id.TestButton);
+        Button testButton = findViewById(R.id.TestButton);
         testButton.setOnClickListener(view -> {
-            Intent intent=new Intent(MainActivity.this,AddMedicineActivity.class);
+            Intent intent=new Intent(MainActivity.this,Calendar.class);
             startActivity(intent);
         });
 
@@ -112,37 +114,3 @@ public class MainActivity extends AppCompatActivity {
 
 }
 
-//        Button signInBtn = findViewById(R.id.signIn);
-//
-//        signInBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // MOVE TO ANOTHER ACTIVITY
-//                Intent goToSignIn = new Intent(MainActivity.this, SignUp.class);
-//                startActivity(goToSignIn);
-//
-//            }
-//        });
-
-//        User user = User.builder()
-//                .name("saify")
-//                .dateOfBirth()
-//                .meds(medicine)
-//                .build();
-//
-//        List times = new ArrayList();
-//        times.add("8:00AM");
-//
-//        Medicine medicine = Medicine.builder()
-//                .name("panadol")
-//                .times(times)
-//                .numberOfTablets(24)
-//                .user(user)
-//                .date(date)
-//                .build();
-//
-//
-//        Date date = Date.builder()
-//                .date()
-//                .meds(medicine)
-//                .build();

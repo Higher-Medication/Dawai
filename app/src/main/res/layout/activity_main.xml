@@ -6,7 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="900dp"
+        android:layout_marginTop="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 <!--    <ImageView-->
 <!--        android:id="@+id/imageView"-->
@@ -18,43 +28,7 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottie1"
-        android:layout_width="410dp"
-        android:layout_height="338dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/firstsplash" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="181dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="4dp"
-        android:text="Your Virtual Nurse"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lottie1" />
-
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="348dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:text="here our virtual nurse will help you to remember your pills, and ensure you take it in the correct date."
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-<!--    <Button-->
+    <!--    <Button-->
 <!--        android:id="@+id/getStartedBtn"-->
 <!--        style="@style/Widget.AppCompat.Button"-->
 <!--        android:layout_width="141dp"-->
@@ -71,28 +45,68 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/text2"-->
 <!--        app:layout_constraintVertical_bias="0.279" />-->
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie1"
+        android:layout_width="410dp"
+        android:layout_height="338dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/firstsplash" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="181dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:text="Your Virtual Nurse"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottie1" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="348dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="80dp"
+        android:text="here our virtual nurse will help you to remember your pills, and ensure you take it in the correct date."
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottie1" />
+
     <Button
         android:id="@+id/getStartedBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="144dp"
+        android:layout_width="309dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="68dp"
         android:backgroundTint="@color/pink"
         android:text="Get Started "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text2"
-        app:layout_constraintVertical_bias="0.318" />
+        app:layout_constraintTop_toBottomOf="@+id/lottie1"
+        app:layout_constraintVertical_bias="0.697" />
 
     <Button
         android:id="@+id/TestButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_marginBottom="68dp"
+        android:backgroundTint="@color/pink"
+        android:text="Button calendar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getStartedBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/getStartedBtn"
+        app:layout_constraintVertical_bias="1.0" />
 
 
     <!--    <Button-->
