@@ -55,7 +55,7 @@
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/lottie"
-        app:layout_constraintVertical_bias="0.887"
+        app:layout_constraintVertical_bias="0.857"
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
@@ -110,11 +110,11 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="248dp"
-        android:text="Let's Sign You Up!"
+        android:layout_marginTop="300dp"
+        android:text="Let's Sign You Up ! 📄"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintHorizontal_bias="0.163"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

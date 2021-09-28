@@ -42,16 +42,6 @@
 <!--        app:layout_constraintTop_toTopOf="parent"></CalendarView>-->
 
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottie"
-        android:layout_width="788dp"
-        android:layout_height="247dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/img"
-        app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/calendar1" />
-
     <!--    <Button-->
 <!--        android:id="@+id/addMedicineBtn"-->
 <!--        android:layout_width="0dp"-->
@@ -69,11 +59,23 @@
 <!--        app:layout_constraintVertical_bias="0.892"-->
 <!--        app:layout_constraintWidth_percent=".8" />-->
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_width="788dp"
+        android:layout_height="247dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/calendar1" />
+
     <CalendarView
         android:id="@+id/calendar"
         android:layout_width="377dp"
         android:layout_height="343dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="12dp"
         android:dateTextAppearance="@style/CalenderViewDateCustomText"
         android:theme="@style/CalenderViewCustom"
         android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
@@ -83,7 +85,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.755" />
+        app:layout_constraintVertical_bias="0.725"
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addMedicineBtn"
@@ -96,10 +99,10 @@
         android:text="Add Medicine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.964"
+        app:layout_constraintHorizontal_bias="0.968"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/lottie"
-        app:layout_constraintVertical_bias="0.955"
+        app:layout_constraintVertical_bias="0.952"
         app:layout_constraintWidth_percent=".8"
         app:srcCompat="@android:drawable/ic_menu_add" />
 
