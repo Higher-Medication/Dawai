@@ -209,8 +209,6 @@ public class AddMedicineActivity extends AppCompatActivity {
                                     Log.i("TestLogin", response.getData().toString());
                                     for (User item : response.getData().getItems()) {
                                         currentUser = item;
-                                        System.out.println("currentUser " + currentUser);
-                                        System.out.println("currentUser  userName" + userName);
                                     }
                                     Medicine medicine = Medicine.builder()
                                             .name(medName)
