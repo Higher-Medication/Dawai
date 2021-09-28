@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dawaii">
         <activity
+            android:name=".Profile"
+            android:exported="true" />
+        <activity
             android:name=".DateDetails"
             android:exported="true" />
         <activity android:name=".AddMedicineActivity" />

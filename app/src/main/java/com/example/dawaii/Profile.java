@@ -19,22 +19,22 @@ import com.amplifyframework.datastore.generated.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DateDetails extends AppCompatActivity {
+public class Profile extends AppCompatActivity {
     String userName;
     User currentUser;
-    String selctedDate = "09/28/2021";
-    List<Medicine> AvailableMed = new ArrayList<>();
+    List<Medicine> meds= new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_date_details);
-        RecyclerView medsRecyclerView = findViewById(R.id.recyclerView);
+        setContentView(R.layout.activity_profile);
 
-        Handler handler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
+        RecyclerView profileRecyclerView = findViewById(R.id.profileRecyclerView);
+
+        Handler newhandler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
             @Override
             public boolean handleMessage(@NonNull Message msg) {
-                medsRecyclerView.getAdapter().notifyDataSetChanged();
+                profileRecyclerView.getAdapter().notifyDataSetChanged();
                 return false;
             }
         });
@@ -50,24 +50,25 @@ public class DateDetails extends AppCompatActivity {
                                 for (User item : response.getData().getItems()) {
                                     currentUser = item;
                                 }
-                                for (Medicine med : currentUser.getMeds()) {
-                                    for (String date : med.getDates()) {
-                                        if (date.equals(selctedDate)) {
-                                            AvailableMed.add(med);
-                                            System.out.println("medicine.getName" + med.getName());
-                                            break;
-                                        }
-                                    }
-                                }
-                                handler.sendEmptyMessage(1);
+                                meds = currentUser.getMeds();
+                                System.out.println("my meds " + meds);
+                                newhandler.sendEmptyMessage(1);
                             },
                             error -> Log.e("MyAmplifyApp", "Query failure", error)
                     );
                 },
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
-        medsRecyclerView.setLayoutManager(new LinearLayoutManager(DateDetails.this));
-        medsRecyclerView.setAdapter(new MedAdapter(AvailableMed));
+//        profileRecyclerView.setLayoutManager(new LinearLayoutManager(Profile.this));
+//        profileRecyclerView.setAdapter(new ProfileAdapter(meds));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        RecyclerView profileRecyclerView = findViewById(R.id.profileRecyclerView);
+        profileRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        profileRecyclerView.setAdapter(new ProfileAdapter(meds));
+
     }
 }
-

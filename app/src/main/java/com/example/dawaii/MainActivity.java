@@ -27,17 +27,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    boolean isSignedIn;
-    String userName;
-
-    List<User> userList = new ArrayList<>();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         try {
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
@@ -46,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (AmplifyException error) {
             Log.e("MyAmplifyApp", "Could not initialize Amplify", error);
         }
-
         Button getStartedBtn = findViewById(R.id.getStartedBtn);
 
         getStartedBtn.setOnClickListener(new View.OnClickListener() {
@@ -57,14 +51,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         Button testButton = findViewById(R.id.TestButton);
         testButton.setOnClickListener(view -> {
-            Intent intent=new Intent(MainActivity.this,AddMedicineActivity.class);
+//            Intent intent=new Intent(MainActivity.this,AddMedicineActivity.class);
+            Intent intent = new Intent(MainActivity.this, Profile.class);
             startActivity(intent);
         });
-
     }
-
 }
 
