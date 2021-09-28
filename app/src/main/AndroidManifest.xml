@@ -17,12 +17,16 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:name=".AddMedicineActivity" />
         <activity
-            android:name=".CalendarDetails"
+            android:name=".Profile"
             android:exported="true" />
         <activity
             android:theme="@style/AppTheme.NoActionBar"
 
             android:name=".Calendar"
+            android:exported="true" />
+
+        <activity
+            android:name=".CalendarDetails"
             android:exported="true" />
         <activity
             android:theme="@style/AppTheme.NoActionBar"

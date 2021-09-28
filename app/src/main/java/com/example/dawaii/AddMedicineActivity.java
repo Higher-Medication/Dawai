@@ -261,8 +261,8 @@ public class AddMedicineActivity extends AppCompatActivity {
                     WorkManager.getInstance().enqueue(workRequest);
                 }
             }
-
         });
+
     }
 
     private static List<String> getDates(String dateString1, String dateString2) {

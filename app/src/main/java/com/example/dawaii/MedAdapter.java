@@ -16,7 +16,7 @@ import java.util.List;
 
 public class MedAdapter extends RecyclerView.Adapter<MedAdapter.MedViewHolder> {
 
-    List<Medicine> medsList = new ArrayList<Medicine>();
+    List<Medicine> medsList ;
 
     public MedAdapter(List<Medicine> medsList) {
         this.medsList = medsList;
@@ -25,13 +25,11 @@ public class MedAdapter extends RecyclerView.Adapter<MedAdapter.MedViewHolder> {
     public static class MedViewHolder extends RecyclerView.ViewHolder {
         public Medicine medicine;
         View itemView;
-
         public MedViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView = itemView;
         }
     }
-
 
     @NonNull
     @Override
