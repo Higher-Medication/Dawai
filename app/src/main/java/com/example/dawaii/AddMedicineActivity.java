@@ -2,6 +2,7 @@ package com.example.dawaii;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.Data;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
@@ -112,7 +113,6 @@ public class AddMedicineActivity extends AppCompatActivity {
                     String time = hour + ":" + minute + ":00" ;
                     dosageHoursList.add(time);
                 }
-
             }
         };
 
@@ -249,17 +249,18 @@ public class AddMedicineActivity extends AppCompatActivity {
                     intervals.add(interval - currentTimeInterval);
                 }
             }
+            System.out.println(intervals);
             for (Long interval : intervals) {
                 if (interval > 0) {
+                    Data.Builder data = new Data.Builder();
+                    data.putString("medName",medName);
                     final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class)
+                            .setInputData(data.build())
                             .setInitialDelay(interval, TimeUnit.SECONDS)
                             .build();
                     WorkManager.getInstance().enqueue(workRequest);
                 }
             }
-//            Intent backToCalendar = new Intent(AddMedicineActivity.this, Calendar.class);
-//            startActivity(backToCalendar);
-
         });
 
     }
