@@ -39,10 +39,16 @@ public class Calendar extends AppCompatActivity {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                String Date = dayOfMonth + "-" + (month + 1) + "-" + year;
-
-                // set this date in TextView for Display
-//                date_view.setText(Date);
+                String Date;
+                if (month<9&& dayOfMonth<10){
+                     Date = "0"+(month + 1) +"/" +"0"+dayOfMonth  + "/" + year;
+                }else if (month<9&& dayOfMonth>=10) {
+                     Date = "0"+(month + 1) +"/" +dayOfMonth  + "/" + year;
+                }else if (month>=9&& dayOfMonth<10){
+                    Date = (month + 1) +"/" +"0"+dayOfMonth  + "/" + year;
+                }else{
+                    Date = (month + 1) +"/" +dayOfMonth  + "/" + year;
+                }
 
                 Intent intent = new Intent();
                 intent.setClass(Calendar.this,CalendarDetails.class);

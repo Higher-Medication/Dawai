@@ -60,16 +60,14 @@ public class DateDetails extends AppCompatActivity {
                                     }
                                 }
                                 handler.sendEmptyMessage(1);
-
                             },
                             error -> Log.e("MyAmplifyApp", "Query failure", error)
                     );
                 },
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
-        medsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        medsRecyclerView.setLayoutManager(new LinearLayoutManager(DateDetails.this));
         medsRecyclerView.setAdapter(new MedAdapter(AvailableMed));
-
     }
 }
 

@@ -14,17 +14,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amplifyframework.api.graphql.model.ModelMutation;
+import com.amplifyframework.auth.AuthUserAttributeKey;
+import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.User;
 
 public class SignIn extends AppCompatActivity {
+    boolean isAllFieldsChecked = false;
+    EditText signInEmail;
+    EditText signInPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        EditText signInEmail = findViewById(R.id.email);
-        EditText signInPass  = findViewById(R.id.pass);
+        signInEmail = findViewById(R.id.email);
+        signInPass = findViewById(R.id.pass);
 
         Button SignInBtn = findViewById(R.id.buttonSignIn);
         SignInBtn.setOnClickListener(new View.OnClickListener() {
@@ -32,40 +39,46 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View view) {
                 String email = signInEmail.getText().toString();
                 String password = signInPass.getText().toString();
-                Amplify.Auth.signIn(
-                        email,
-                        password,
-                        result -> {
-                            Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
-                            Intent goToMainActivity = new Intent(SignIn.this,Calendar.class);
-                            startActivity(goToMainActivity);
-                        },
-                        error -> {
-                            Log.e("AuthQuickstart", error.toString());
-//                            Toast.makeText(getApplicationContext(), "Enter the correct password!", Toast.LENGTH_LONG).show();
-                        }
-                );
+
+                isAllFieldsChecked = CheckAllFields();
+
+                if (isAllFieldsChecked) {
+                    Amplify.Auth.signIn(
+                            email,
+                            password,
+                            result -> {
+                                Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
+                                Intent goToMainActivity = new Intent(SignIn.this, MainActivity.class);
+                                startActivity(goToMainActivity);
+                            },
+                            error -> {
+                                Log.e("AuthQuickstart", error.toString());
+//                                Toast.makeText(getApplicationContext(),"sdsdsd",Toast.LENGTH_SHORT).show();
+                            }
+                    );
+                }
             }
         });
-
-//        Button RegisterBtn = findViewById(R.id.RegisterBtn);
-//        RegisterBtn.setOnClickListener(new View.OnClickListener() {buttonSignIn
-//            @Override
-//            public void onClick(View view) {
-//                Intent goToSignUpActivity = new Intent(SignIn.this,SignUp.class);
-//                startActivity(goToSignUpActivity);
-//            }
-//        });
-
 
         TextView forgetPassword = findViewById(R.id.forgetPassword);
         forgetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToForgotPassword = new Intent(SignIn.this,ForgotPassword.class);
+                Intent goToForgotPassword = new Intent(SignIn.this, ForgotPassword.class);
                 startActivity(goToForgotPassword);
             }
         });
+    }
 
+    private boolean CheckAllFields() {
+        if (signInEmail.length() == 0) {
+            signInEmail.setError("This field is required");
+            return false;
+        }
+        if (signInPass.length() == 0) {
+            signInPass.setError("This field is required");
+            return false;
+        }
+        return true;
     }
 }

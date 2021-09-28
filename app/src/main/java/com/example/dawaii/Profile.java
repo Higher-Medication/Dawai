@@ -1,55 +1,40 @@
 package com.example.dawaii;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Medicine;
 import com.amplifyframework.datastore.generated.model.User;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CalendarDetails extends AppCompatActivity {
+public class Profile extends AppCompatActivity {
     String userName;
     User currentUser;
-    List<Medicine> AvailableMed = new ArrayList<>();
+    List<Medicine> meds= new ArrayList<>();
 
-    private  TextView theDate;
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendar_details);
+        setContentView(R.layout.activity_profile);
 
+        RecyclerView profileRecyclerView = findViewById(R.id.profileRecyclerView);
 
-        Intent dateIntent = getIntent();
-        String selectedDate = dateIntent.getStringExtra("Date");
-
-        System.out.println("Date  " + selectedDate);
-
-        RecyclerView medsRecyclerView = findViewById(R.id.recyclerView);
-
-        Handler handler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
+        Handler newhandler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
             @Override
             public boolean handleMessage(@NonNull Message msg) {
-                medsRecyclerView.getAdapter().notifyDataSetChanged();
+                profileRecyclerView.getAdapter().notifyDataSetChanged();
                 return false;
             }
         });
@@ -65,24 +50,25 @@ public class CalendarDetails extends AppCompatActivity {
                                 for (User item : response.getData().getItems()) {
                                     currentUser = item;
                                 }
-                                for (Medicine med : currentUser.getMeds()) {
-                                    for (String date : med.getDates()) {
-                                        if (date.equals(selectedDate)) {
-                                            AvailableMed.add(med);
-                                            System.out.println("medicine.getName" + med.getName());
-                                            break;
-                                        }
-                                    }
-                                }
-                                handler.sendEmptyMessage(1);
+                                meds = currentUser.getMeds();
+                                System.out.println("my meds " + meds);
+                                newhandler.sendEmptyMessage(1);
                             },
                             error -> Log.e("MyAmplifyApp", "Query failure", error)
                     );
                 },
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
-        medsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        medsRecyclerView.setAdapter(new MedAdapter(AvailableMed));
+//        profileRecyclerView.setLayoutManager(new LinearLayoutManager(Profile.this));
+//        profileRecyclerView.setAdapter(new ProfileAdapter(meds));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        RecyclerView profileRecyclerView = findViewById(R.id.profileRecyclerView);
+        profileRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        profileRecyclerView.setAdapter(new ProfileAdapter(meds));
 
     }
 }
