@@ -58,9 +58,55 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+//        Amplify.API.query(
+//                ModelQuery.list(User.class),
+//                response -> {
+//                    for (User user : response.getData()) {
+//                        userList.add(user);
+//                        Log.i("MyAmplifyApp", user.getName());
+//                    }
+//                    List<String> datesList = userList.get(2).getMeds().get(0).getDates();
+//                    List<String> timesList = userList.get(2).getMeds().get(0).getTimes();
+//
+//                    List intervals = new ArrayList();
+//                    for (String s : datesList) {
+//                        for (String s1 : timesList) {
+//                            String concatinate = s + "T" + s1;
+//                            LocalDateTime localDateTime = LocalDateTime.parse(concatinate);
+//                            long interval = localDateTime.toEpochSecond(ZoneOffset.UTC);
+//                            /// minus the now(in seconds)
+//                            intervals.add(interval);
+//                        }
+//                    }
+//                    System.out.println(intervals.toString());
+////                    handler.sendEmptyMessage(1);
+
+//                },
+//                error -> Log.e("MyAmplifyApp", "Query failure", error)
+//        );
+//
+//        List<Integer> testIntervals = new ArrayList();
+//        testIntervals.add(5);
+//        testIntervals.add(15);
+//        testIntervals.add(30);
+
+//        Constraints constraints = new Constraints.Builder()
+//                .setRequiredNetworkType(NetworkType.NOT_REQUIRED)
+//                .setRequiresCharging(false)
+//                .build();
+
+//        for (Integer testInterval : testIntervals) {
+//
+//            final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class)
+//                    .setInitialDelay(testInterval, SECONDS)
+//                    .build();
+//            WorkManager.getInstance().enqueue(workRequest);
+//
+//        }
+
         Button testButton = findViewById(R.id.TestButton);
         testButton.setOnClickListener(view -> {
-            Intent intent=new Intent(MainActivity.this,AddMedicineActivity.class);
+            Intent intent=new Intent(MainActivity.this,Calendar.class);
             startActivity(intent);
         });
 

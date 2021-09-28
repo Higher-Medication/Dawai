@@ -11,32 +11,55 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Dawaii">
+        android:theme="@style/Theme.Dawaii" >
+
         <activity
-            android:name=".DateDetails"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".AddMedicineActivity" />
+        <activity
+            android:name=".CalendarDetails"
             android:exported="true" />
-        <activity android:name=".AddMedicineActivity" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
+            android:name=".Calendar"
+            android:exported="true" />
+        <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
             android:name=".SecondActivity"
             android:exported="true" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
             android:name=".ConfirmResetPassword"
             android:exported="true" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
             android:name=".ForgotPassword"
             android:exported="true" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
             android:name=".SignIn"
             android:exported="true" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
             android:name=".ConfirmSignUp"
             android:exported="true" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
+
             android:name=".SignUp"
             android:exported="true" />
+
         <activity
             android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

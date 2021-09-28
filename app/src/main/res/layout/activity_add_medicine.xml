@@ -6,53 +6,114 @@
     android:layout_height="match_parent"
     tools:context=".AddMedicineActivity">
 
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="900dp"
+        android:layout_marginTop="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_width="1100dp"
+        android:layout_height="157dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/addmedsplash" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:text="Add Medicines"
+        android:textColor="@color/pink"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.861"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img" />
+
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="164dp"
+        android:text="Medicine Information 💊 :"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lottie" />
 
     <EditText
         android:id="@+id/medicineNameInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enter Medicine Name"
+        android:layout_width="294dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Medicine Name ⁉️"
         android:minHeight="48dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="14sp"
         app:endIconMode="clear_text"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintWidth_percent=".8" />
 
     <EditText
         android:id="@+id/tabletsTextInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enter Number Of Tablets"
+        android:layout_width="297dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Number Of Tablets ⁉️"
         android:inputType="number"
         android:minHeight="48dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="14sp"
         app:endIconMode="clear_text"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.144" />
-
-
-
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintWidth_percent=".8" />
 
     <EditText
         android:id="@+id/pillNumberText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enter Pills number that you have"
+        android:layout_width="297dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="148dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Pills number that you have ⁉️"
         android:inputType="number"
         android:minHeight="48dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="14sp"
         app:endIconMode="clear_text"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintWidth_percent=".8" />
 
     <Button
         android:id="@+id/addMedicineButton"
@@ -60,122 +121,128 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:text="Add"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/pink"
+        android:radius="30dp"
+        android:text="Add New Medicine 💊"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.882" />
+
+        app:layout_constraintWidth_percent=".8" />
 
     <TextView
         android:id="@+id/startDateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_width="98dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="3dp"
         android:hint="Start Date"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/addMedicineButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.147" />
-
-
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="103dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="52dp"
         android:text="Start Date:"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.663" />
+        app:layout_constraintTop_toBottomOf="@+id/expirationDateTextView" />
 
     <TextView
         android:id="@+id/endDateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="92dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="50dp"
         android:text="End Date:"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.661" />
+        app:layout_constraintTop_toBottomOf="@+id/expirationDateTextView" />
 
     <TextView
         android:id="@+id/endDateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="93dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="50dp"
         android:text="mm/dd/yyyy"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/addMedicineButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.731"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/startDateTextView"
         app:layout_constraintTop_toBottomOf="@+id/endDateTextView"
-        app:layout_constraintVertical_bias="0.065" />
-
-
+        app:layout_constraintVertical_bias="0.004" />
 
     <TextView
         android:id="@+id/expirationDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pick Expiration Date"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="492dp"
+        android:text="Pick Expiration Date 💊:"
+        android:textSize="15sp"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/img" />
 
     <TextView
         android:id="@+id/expirationDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_width="69dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="24dp"
+        android:text="📅"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintHorizontal_bias="0.624"
         app:layout_constraintStart_toEndOf="@+id/expirationDateTextView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/img" />
 
     <EditText
         android:id="@+id/editTextTextDosageTimes"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginEnd="88dp"
+        android:background="@drawable/edit_text_bg"
         android:ems="10"
+        android:inputType="number"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+
+        android:paddingBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.797"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.386"
-        tools:hint="Enter Number"
-        android:inputType="number" />
+        app:layout_constraintTop_toTopOf="@+id/img"
+        app:layout_constraintWidth_percent=".8"
+        tools:hint="Enter Number" />
 
     <TextView
         android:id="@+id/dosageTimesTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pick Your times"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="172dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="420dp"
+        android:text="Pick Your times 💊:"
+        android:textSize="15sp"
         app:layout_constraintEnd_toStartOf="@+id/editTextTextDosageTimes"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39"
-        />
+        app:layout_constraintTop_toTopOf="@+id/img" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
