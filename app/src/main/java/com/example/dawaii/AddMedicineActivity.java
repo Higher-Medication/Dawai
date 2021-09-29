@@ -14,6 +14,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -61,6 +62,11 @@ public class AddMedicineActivity extends AppCompatActivity {
     private ArrayList<String> dosageHoursList;
     private EditText editTextTextDosageTimes;
     private Integer dosageNumberPerDay;
+    boolean isAllFieldsChecked = false;
+    private EditText medNameField;
+    private EditText pillsCount;
+    private EditText  dosage;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -262,9 +268,28 @@ public class AddMedicineActivity extends AppCompatActivity {
                     WorkManager.getInstance().enqueue(workRequest);
                 }
             }
-//            Intent intent = new Intent(AddMedicineActivity.this, Calendar.class);
-//            startActivity(intent);
         });
+    }
+    private boolean CheckAllFields() {
+
+        if (editTextTextDosageTimes.length() == 0) {
+            editTextTextDosageTimes.setError("This field is required");
+            return false;
+        }
+        System.out.println("TESSSSSSSSSSSSSSSSSST"+medNameField.getText());
+        if (medNameField.length() == 0) {
+            medNameField.setError("This field is required");
+            return false;
+        }
+        if (pillsCount.length() == 0) {
+            pillsCount.setError("This field is required");
+            return false;
+        }
+        if (dosage.length() == 0) {
+            dosage.setError("This field is required");
+            return false;
+        }
+        return true;
     }
 
     private static List<String> getDates(String dateString1, String dateString2) {
@@ -290,4 +315,5 @@ public class AddMedicineActivity extends AppCompatActivity {
         }
         return dates;
     }
+
 }
