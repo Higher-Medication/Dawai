@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/pink"
         android:backgroundTintMode="add"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif"
         android:radius="0dp"
         android:text="Sign Up"
         android:textAlignment="center"
@@ -59,8 +59,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/lottie"
         app:layout_constraintVertical_bias="0.932"
-        app:layout_constraintWidth_percent=".8"
-        />
+        app:layout_constraintWidth_percent=".8" />
 
     <EditText
         android:id="@+id/EmailEditText"
@@ -119,7 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="320dp"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif"
         android:text="Let's Sign You Up ! "
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"

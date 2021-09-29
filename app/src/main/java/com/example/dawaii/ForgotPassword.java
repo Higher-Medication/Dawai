@@ -19,6 +19,8 @@ public class ForgotPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
 
+
+
         EditText resetEmailEditText = findViewById(R.id.resetEmailEditText);
 
         Button ContinueButton = findViewById(R.id.ContinueButton);
@@ -38,6 +40,12 @@ public class ForgotPassword extends AppCompatActivity {
             }
         });
 
+        Button backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(view -> {
+//            Intent intent=new Intent(MainActivity.this,AddMedicineActivity.class);
+            Intent intent = new Intent(ForgotPassword.this, SignIn.class);
+            startActivity(intent);
+        });
 
     }
 }

@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.amplifyframework.api.graphql.model.ModelQuery;
@@ -83,6 +84,13 @@ public class CalendarDetails extends AppCompatActivity {
         );
         medsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         medsRecyclerView.setAdapter(new MedAdapter(AvailableMed));
+
+        Button backToCalendarBtn = findViewById(R.id.backToCalendarBtn);
+        backToCalendarBtn.setOnClickListener(view -> {
+//            Intent intent=new Intent(MainActivity.this,AddMedicineActivity.class);
+            Intent intent = new Intent(CalendarDetails.this, Calendar.class);
+            startActivity(intent);
+        });
 
     }
 }

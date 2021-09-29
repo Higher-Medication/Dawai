@@ -22,7 +22,7 @@ public class Calendar extends AppCompatActivity {
         setContentView(R.layout.activity_calendar);
 
 
-        Button addMedicine = findViewById(R.id.addMedicineBtn);
+        FloatingActionButton addMedicine = findViewById(R.id.addMedicineBtn);
 
         addMedicine.setOnClickListener(new View.OnClickListener() {
             @Override
