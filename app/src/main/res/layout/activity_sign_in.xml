@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="68dp"
         android:backgroundTint="@color/pink"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif"
         android:radius="30dp"
         android:text="Sign In"
         android:textColor="@color/white"
@@ -107,7 +107,7 @@
         android:fontFamily="monospace"
         android:text="Forget Password ?"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pass" />
 
@@ -115,9 +115,9 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="44dp"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif"
         android:text="Sign In"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -128,102 +128,14 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:fontFamily="monospace"
+        android:layout_marginTop="80dp"
+        android:fontFamily="sans-serif"
         android:text="Welcome Back. You've been missed!"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.394"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lottie" />
 
-    <!--    <Button-->
-<!--        android:id="@+id/RegisterBtn"-->
-<!--        android:layout_width="210dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginStart="92dp"-->
-<!--        android:layout_marginEnd="109dp"-->
-<!--        android:text="Sign Up"-->
-<!--        android:visibility="visible"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="1.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/signInButton" />-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/SignInEmail"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="93dp"-->
-<!--        android:layout_marginEnd="109dp"-->
-<!--        android:ems="10"-->
-<!--        android:inputType="textPersonName"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView7" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/textView7"-->
-<!--        android:layout_width="108dp"-->
-<!--        android:layout_height="25dp"-->
-<!--        android:layout_marginStart="92dp"-->
-<!--        android:layout_marginTop="120dp"-->
-<!--        android:layout_marginEnd="225dp"-->
-<!--        android:text="UserName"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/SignInPassword"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="93dp"-->
-<!--        android:layout_marginEnd="108dp"-->
-<!--        android:ems="10"-->
-<!--        android:inputType="textPassword"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView8" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/textView8"-->
-<!--        android:layout_width="94dp"-->
-<!--        android:layout_height="25dp"-->
-<!--        android:layout_marginStart="93dp"-->
-<!--        android:layout_marginTop="53dp"-->
-<!--        android:layout_marginEnd="224dp"-->
-<!--        android:text="Password"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/SignInEmail" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/signInButton"-->
-<!--        android:layout_width="210dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginStart="92dp"-->
-<!--        android:layout_marginTop="36dp"-->
-<!--        android:layout_marginEnd="109dp"-->
-<!--        android:text="Sign In"-->
-<!--        android:visibility="visible"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="1.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/SignInPassword" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/forgetPasswordBtn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="4dp"-->
-<!--        android:text="forget Password ?"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.47"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/RegisterBtn"-->
-<!--        app:layout_constraintVertical_bias="0.0" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -86,7 +86,7 @@
         android:layout_width="309dp"
         android:layout_height="51dp"
         android:backgroundTint="@color/pink"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif"
         android:text="Get Started "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
