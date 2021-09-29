@@ -17,7 +17,6 @@ public class SecondActivity extends AppCompatActivity {
     TextView appName;
     LottieAnimationView lottieAnimationView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +37,8 @@ public class SecondActivity extends AppCompatActivity {
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // MOVE TO ANOTHER ACTIVITY
                 Intent goToSignIn = new Intent(SecondActivity.this, SignUp.class);
                 startActivity(goToSignIn);
-
             }
         });
 
@@ -50,14 +47,9 @@ public class SecondActivity extends AppCompatActivity {
         signinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // MOVE TO ANOTHER ACTIVITY
                 Intent goToSignIn = new Intent(SecondActivity.this, SignIn.class);
                 startActivity(goToSignIn);
-
             }
         });
-
-
-
-            }
-        }
+    }
+}
