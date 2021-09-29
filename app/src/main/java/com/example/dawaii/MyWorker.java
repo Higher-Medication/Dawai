@@ -38,7 +38,7 @@ int counter = 0;
     public Result doWork() {
         int numberOfTablets = getInputData().getInt("numberOfTablets", 1);
         String medName = getInputData().getString("medName");
-        displayNotification("My Worker",medName, numberOfTablets);
+        displayNotification("MedMinder",medName, numberOfTablets);
         return Result.success();
     }
 
@@ -51,7 +51,7 @@ int counter = 0;
 
     private void displayNotification(String title, String task, int dosage) {
         NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-        Intent fullScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent fullScreenIntent = new Intent(getApplicationContext(), Calendar.class);
         PendingIntent fullScreenPendingIntent = PendingIntent.getActivity(getApplicationContext(), 0,
                 fullScreenIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {

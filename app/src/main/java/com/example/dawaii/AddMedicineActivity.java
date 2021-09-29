@@ -65,7 +65,8 @@ public class AddMedicineActivity extends AppCompatActivity {
     boolean isAllFieldsChecked = false;
     private EditText medNameField;
     private EditText pillsCount;
-    private EditText  dosage;
+    private EditText dosage;
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -199,13 +200,13 @@ public class AddMedicineActivity extends AppCompatActivity {
         Button addMedicineButton = findViewById(R.id.addMedicineButton);
         addMedicineButton.setOnClickListener(v -> {
 
-            TextView medNameField = findViewById(R.id.medicineNameInput);
+            medNameField = findViewById(R.id.medicineNameInput);
             String medName = medNameField.getText().toString();
 
-            TextView pillsCount = findViewById(R.id.pillNumberText);
+            pillsCount = findViewById(R.id.pillNumberText);
             Integer pills = Integer.parseInt(String.valueOf(pillsCount.getText()));
 
-            TextView dosage = findViewById(R.id.tabletsTextInput);
+            dosage = findViewById(R.id.tabletsTextInput);
             Integer numberOfTablets = Integer.parseInt(String.valueOf(dosage.getText()));
 
             TextView expirationDate = findViewById(R.id.expirationDate);
@@ -268,15 +269,20 @@ public class AddMedicineActivity extends AppCompatActivity {
                     WorkManager.getInstance().enqueue(workRequest);
                 }
             }
+            editTextTextDosageTimes.setText("");
+            medNameField.setText("");
+            pillsCount.setText("");
+            dosage.setText("");
         });
     }
+
     private boolean CheckAllFields() {
 
         if (editTextTextDosageTimes.length() == 0) {
             editTextTextDosageTimes.setError("This field is required");
             return false;
         }
-        System.out.println("TESSSSSSSSSSSSSSSSSST"+medNameField.getText());
+        System.out.println("TESSSSSSSSSSSSSSSSSST" + medNameField.getText());
         if (medNameField.length() == 0) {
             medNameField.setError("This field is required");
             return false;
