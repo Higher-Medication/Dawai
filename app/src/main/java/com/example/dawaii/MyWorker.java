@@ -36,8 +36,9 @@ int counter = 0;
     @NonNull
     @Override
     public Result doWork() {
+        int numberOfTablets = getInputData().getInt("numberOfTablets", 1);
         String medName = getInputData().getString("medName");
-        displayNotification("My Worker",medName);
+        displayNotification("MedMinder",medName, numberOfTablets);
         return Result.success();
     }
 
@@ -48,9 +49,9 @@ int counter = 0;
      * you should check the Android Notification Tutorial
      * */
 
-    private void displayNotification(String title, String task) {
+    private void displayNotification(String title, String task, int dosage) {
         NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-        Intent fullScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent fullScreenIntent = new Intent(getApplicationContext(), Calendar.class);
         PendingIntent fullScreenPendingIntent = PendingIntent.getActivity(getApplicationContext(), 0,
                 fullScreenIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -58,9 +59,10 @@ int counter = 0;
             notificationManager.createNotificationChannel(channel);
         }
 
+        String notificationContent = "You have to take " + dosage + " pills of " + task;
         NotificationCompat.Builder notification = new NotificationCompat.Builder(getApplicationContext(), "simplifiedcoding")
                 .setContentTitle(title)
-                .setContentText(task)
+                .setContentText(notificationContent)
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .setColor(Color.RED)
                 .setVibrate(new long[]{0, 1000, 500, 1000})

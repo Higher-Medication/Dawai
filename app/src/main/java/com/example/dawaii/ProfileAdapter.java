@@ -48,13 +48,13 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.MedProfi
         TextView difference = holder.itemView.findViewById(R.id.pillsDiff);
         medName.setText(holder.medicine.getName());
         if (holder.medicine.getDates().size() > 0) {
-            String startEnd = holder.medicine.getDates().get(0) + "TO" + holder.medicine.getDates().get(holder.medicine.getDates().size() - 1);
+            String startEnd = holder.medicine.getDates().get(0) + "  TO  " + holder.medicine.getDates().get(holder.medicine.getDates().size() - 1);
             startToEnd.setText(startEnd);
 
         }
         expirationDate.setText(holder.medicine.getExpirationDate());
         int required = holder.medicine.getDosage() * holder.medicine.getDates().size() * holder.medicine.getTimes().size();
-        String diff = "You have to take " + required + " pills from " + holder.medicine.getName() + "\n you have " + holder.medicine.getAvailableTablets();
+        String diff = "You have to take " + required + " pills of " + holder.medicine.getName() + ", you have " + holder.medicine.getAvailableTablets();
         difference.setText(diff);
     }
 

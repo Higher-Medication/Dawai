@@ -49,16 +49,18 @@ public class Profile extends AppCompatActivity {
                     Log.i("AmplifyQuickstart", result.toString());
                     userName = Amplify.Auth.getCurrentUser().getUsername();
                     Amplify.API.query(
-                            ModelQuery.list(User.class, User.NAME.eq(userName)),
+                            ModelQuery.list(User.class, User.NAME.contains(userName)),
                             response -> {
                                 Log.i("TestLogin", response.getData().toString());
                                 for (User item : response.getData().getItems()) {
                                     currentUser = item;
                                 }
                                 meds = currentUser.getMeds();
-                                if (!meds.isEmpty()) {
-                                    newHandler.sendEmptyMessage(1);
-                                }
+                                System.out.println(currentUser);
+                                System.out.println("The meds: " + meds);
+
+                                newHandler.sendEmptyMessage(1);
+
                             },
                             error -> Log.e("MyAmplifyApp", "Query failure", error)
                     );

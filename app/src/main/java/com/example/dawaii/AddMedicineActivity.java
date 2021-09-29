@@ -65,7 +65,8 @@ public class AddMedicineActivity extends AppCompatActivity {
     boolean isAllFieldsChecked = false;
     private EditText medNameField;
     private EditText pillsCount;
-    private EditText  dosage;
+    private EditText dosage;
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -199,91 +200,89 @@ public class AddMedicineActivity extends AppCompatActivity {
         Button addMedicineButton = findViewById(R.id.addMedicineButton);
         addMedicineButton.setOnClickListener(v -> {
 
+            medNameField = findViewById(R.id.medicineNameInput);
+            String medName = medNameField.getText().toString();
 
-                    medNameField = findViewById(R.id.medicineNameInput);
-                    String medName = medNameField.getText().toString();
+            pillsCount = findViewById(R.id.pillNumberText);
+            Integer pills = Integer.parseInt(String.valueOf(pillsCount.getText()));
 
-                    pillsCount = findViewById(R.id.pillNumberText);
-                    Integer pills = Integer.parseInt(String.valueOf(pillsCount.getText()));
+            dosage = findViewById(R.id.tabletsTextInput);
+            Integer numberOfTablets = Integer.parseInt(String.valueOf(dosage.getText()));
 
-                    dosage = findViewById(R.id.tabletsTextInput);
-                    Integer numberOfTablets = Integer.parseInt(String.valueOf(dosage.getText()));
+            TextView expirationDate = findViewById(R.id.expirationDate);
+            String expireDate = expirationDate.getText().toString();
 
-                    TextView expirationDate = findViewById(R.id.expirationDate);
-                    String expireDate = expirationDate.getText().toString();
+            Amplify.Auth.fetchAuthSession(
+                    result -> {
+                        Log.i("medicineNameInput", result.toString());
+                        userName = Amplify.Auth.getCurrentUser().getUsername();
 
-                    Amplify.Auth.fetchAuthSession(
-                            result -> {
-                                Log.i("medicineNameInput", result.toString());
-                                userName = Amplify.Auth.getCurrentUser().getUsername();
-
-                                Amplify.API.query(
-                                        ModelQuery.list(User.class, User.NAME.contains(userName)),
-                                        response -> {
-                                            Log.i("TestLogin", response.getData().toString());
-                                            for (User item : response.getData().getItems()) {
-                                                currentUser = item;
-                                            }
-                                            Medicine medicine = Medicine.builder()
-                                                    .name(medName)
-                                                    .times(dosageHoursList)
-                                                    .dates(getDates(startDate, endDate))
-                                                    .expirationDate(expireDate)
-                                                    .availableTablets(pills)
-                                                    .user(currentUser)
-                                                    .dosage(numberOfTablets)
-                                                    .build();
-                                            Amplify.API.mutate(
-                                                    ModelMutation.create(medicine),
-                                                    responseto -> Log.i("MyAmplifyApp", "Added medicine with id: " + responseto.getData().getId()),
-                                                    error -> Log.e("MyAmplifyApp", "Create failed", error)
-                                            );
-                                        },
-                                        error -> Log.e("MyAmplifyApp", "Query failure", error)
-                                );
-                            },
-                            error -> Log.e("AmplifyQuickstart", error.toString())
-                    );
-                    List<Long> intervals = new ArrayList();
-                    for (String s : getDates(startDate, endDate)) {
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-                        LocalDate localDate = LocalDate.parse(s, formatter);
-                        for (String s1 : dosageHoursList) {
-                            String concatinate = localDate.toString() + "T" + s1;
-                            LocalDateTime localDateTime = LocalDateTime.parse(concatinate);
-                            long interval = localDateTime.toEpochSecond(ZoneOffset.UTC);
-                            long currentTimeInterval = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
-                            intervals.add(interval - currentTimeInterval);
-                        }
-                    }
-                    System.out.println(intervals);
-                    for (Long interval : intervals) {
-                        if (interval > 0) {
-                            Data.Builder data = new Data.Builder();
-                            data.putString("medName", medName);
-                            final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class)
-                                    .setInputData(data.build())
-                                    .setInitialDelay(interval, TimeUnit.SECONDS)
-                                    .build();
-                            WorkManager.getInstance().enqueue(workRequest);
-                        }
-                    }
-               editTextTextDosageTimes.setText("");
-               medNameField.setText("");
-               pillsCount.setText("");
-               dosage.setText("");
-
-//            Intent intent = new Intent(AddMedicineActivity.this, Calendar.class);
-//            startActivity(intent);
+                        Amplify.API.query(
+                                ModelQuery.list(User.class, User.NAME.contains(userName)),
+                                response -> {
+                                    Log.i("TestLogin", response.getData().toString());
+                                    for (User item : response.getData().getItems()) {
+                                        currentUser = item;
+                                    }
+                                    Medicine medicine = Medicine.builder()
+                                            .name(medName)
+                                            .times(dosageHoursList)
+                                            .dates(getDates(startDate, endDate))
+                                            .expirationDate(expireDate)
+                                            .availableTablets(pills)
+                                            .user(currentUser)
+                                            .dosage(numberOfTablets)
+                                            .build();
+                                    Amplify.API.mutate(
+                                            ModelMutation.create(medicine),
+                                            responseto -> Log.i("MyAmplifyApp", "Added medicine with id: " + responseto.getData().getId()),
+                                            error -> Log.e("MyAmplifyApp", "Create failed", error)
+                                    );
+                                },
+                                error -> Log.e("MyAmplifyApp", "Query failure", error)
+                        );
+                    },
+                    error -> Log.e("AmplifyQuickstart", error.toString())
+            );
+            List<Long> intervals = new ArrayList();
+            for (String s : getDates(startDate, endDate)) {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+                LocalDate localDate = LocalDate.parse(s, formatter);
+                for (String s1 : dosageHoursList) {
+                    String concatinate = localDate.toString() + "T" + s1;
+                    LocalDateTime localDateTime = LocalDateTime.parse(concatinate);
+                    long interval = localDateTime.toEpochSecond(ZoneOffset.UTC);
+                    long currentTimeInterval = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
+                    intervals.add(interval - currentTimeInterval);
+                }
+            }
+            System.out.println(intervals);
+            for (Long interval : intervals) {
+                if (interval > 0) {
+                    Data.Builder data = new Data.Builder();
+                    data.putInt("numberOfTablets", numberOfTablets);
+                    data.putString("medName", medName);
+                    final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class)
+                            .setInputData(data.build())
+                            .setInitialDelay(interval, TimeUnit.SECONDS)
+                            .build();
+                    WorkManager.getInstance().enqueue(workRequest);
+                }
+            }
+            editTextTextDosageTimes.setText("");
+            medNameField.setText("");
+            pillsCount.setText("");
+            dosage.setText("");
         });
     }
+
     private boolean CheckAllFields() {
 
         if (editTextTextDosageTimes.length() == 0) {
             editTextTextDosageTimes.setError("This field is required");
             return false;
         }
-        System.out.println("TESSSSSSSSSSSSSSSSSST"+medNameField.getText());
+        System.out.println("TESSSSSSSSSSSSSSSSSST" + medNameField.getText());
         if (medNameField.length() == 0) {
             medNameField.setError("This field is required");
             return false;

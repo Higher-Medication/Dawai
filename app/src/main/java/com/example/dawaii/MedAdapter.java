@@ -46,7 +46,7 @@ public class MedAdapter extends RecyclerView.Adapter<MedAdapter.MedViewHolder> {
         TextView medDosage = holder.itemView.findViewById(R.id.medDosage);
         TextView dosageTime = holder.itemView.findViewById(R.id.dosageTime);
         medName.setText(holder.medicine.getName());
-        medDosage.setText(holder.medicine.getDosage().toString());
+        medDosage.setText(holder.medicine.getDosage().toString()+ " \uD83D\uDC8A");
         String times = "";
         for (int i = 0; i < holder.medicine.getTimes().size(); i++) {
             times += holder.medicine.getTimes().get(i)+"\n";
