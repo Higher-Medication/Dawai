@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
+import com.amplifyframework.auth.options.AuthSignOutOptions;
+import com.amplifyframework.core.Amplify;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Calendar extends AppCompatActivity {
@@ -57,6 +60,15 @@ public class Calendar extends AppCompatActivity {
             }
         });
 
+
+
+        FloatingActionButton profileFAB=findViewById(R.id.profileFAB);
+        profileFAB.setOnClickListener(view -> {
+            Intent intent = new Intent();
+            intent.setClass(Calendar.this,Profile.class);
+            Calendar.this.startActivity(intent);
+            
+        });
 
     }
 }

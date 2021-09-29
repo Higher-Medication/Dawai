@@ -14,6 +14,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -61,6 +62,11 @@ public class AddMedicineActivity extends AppCompatActivity {
     private ArrayList<String> dosageHoursList;
     private EditText editTextTextDosageTimes;
     private Integer dosageNumberPerDay;
+    boolean isAllFieldsChecked = false;
+    private EditText medNameField;
+    private EditText pillsCount;
+    private EditText  dosage;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -193,77 +199,104 @@ public class AddMedicineActivity extends AppCompatActivity {
         Button addMedicineButton = findViewById(R.id.addMedicineButton);
         addMedicineButton.setOnClickListener(v -> {
 
-            TextView medNameField = findViewById(R.id.medicineNameInput);
-            String medName = medNameField.getText().toString();
 
-            TextView pillsCount = findViewById(R.id.pillNumberText);
-            Integer pills = Integer.parseInt(String.valueOf(pillsCount.getText()));
+                    medNameField = findViewById(R.id.medicineNameInput);
+                    String medName = medNameField.getText().toString();
 
-            TextView dosage = findViewById(R.id.tabletsTextInput);
-            Integer numberOfTablets = Integer.parseInt(String.valueOf(dosage.getText()));
+                    pillsCount = findViewById(R.id.pillNumberText);
+                    Integer pills = Integer.parseInt(String.valueOf(pillsCount.getText()));
 
-            TextView expirationDate = findViewById(R.id.expirationDate);
-            String expireDate = expirationDate.getText().toString();
+                    dosage = findViewById(R.id.tabletsTextInput);
+                    Integer numberOfTablets = Integer.parseInt(String.valueOf(dosage.getText()));
 
-            Amplify.Auth.fetchAuthSession(
-                    result -> {
-                        Log.i("medicineNameInput", result.toString());
-                        userName = Amplify.Auth.getCurrentUser().getUsername();
+                    TextView expirationDate = findViewById(R.id.expirationDate);
+                    String expireDate = expirationDate.getText().toString();
 
-                        Amplify.API.query(
-                                ModelQuery.list(User.class, User.NAME.contains(userName)),
-                                response -> {
-                                    Log.i("TestLogin", response.getData().toString());
-                                    for (User item : response.getData().getItems()) {
-                                        currentUser = item;
-                                    }
-                                    Medicine medicine = Medicine.builder()
-                                            .name(medName)
-                                            .times(dosageHoursList)
-                                            .dates(getDates(startDate, endDate))
-                                            .expirationDate(expireDate)
-                                            .availableTablets(pills)
-                                            .user(currentUser)
-                                            .dosage(numberOfTablets)
-                                            .build();
-                                    Amplify.API.mutate(
-                                            ModelMutation.create(medicine),
-                                            responseto -> Log.i("MyAmplifyApp", "Added medicine with id: " + responseto.getData().getId()),
-                                            error -> Log.e("MyAmplifyApp", "Create failed", error)
-                                    );
-                                },
-                                error -> Log.e("MyAmplifyApp", "Query failure", error)
-                        );
-                    },
-                    error -> Log.e("AmplifyQuickstart", error.toString())
-            );
-            List<Long> intervals = new ArrayList();
-            for (String s : getDates(startDate, endDate)) {
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-                LocalDate localDate = LocalDate.parse(s, formatter);
-                for (String s1 : dosageHoursList) {
-                    String concatinate = localDate.toString() + "T" + s1;
-                    LocalDateTime localDateTime = LocalDateTime.parse(concatinate);
-                    long interval = localDateTime.toEpochSecond(ZoneOffset.UTC);
-                    long currentTimeInterval = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
-                    intervals.add(interval - currentTimeInterval);
-                }
-            }
-            System.out.println(intervals);
-            for (Long interval : intervals) {
-                if (interval > 0) {
-                    Data.Builder data = new Data.Builder();
-                    data.putString("medName", medName);
-                    final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class)
-                            .setInputData(data.build())
-                            .setInitialDelay(interval, TimeUnit.SECONDS)
-                            .build();
-                    WorkManager.getInstance().enqueue(workRequest);
-                }
-            }
+                    Amplify.Auth.fetchAuthSession(
+                            result -> {
+                                Log.i("medicineNameInput", result.toString());
+                                userName = Amplify.Auth.getCurrentUser().getUsername();
+
+                                Amplify.API.query(
+                                        ModelQuery.list(User.class, User.NAME.contains(userName)),
+                                        response -> {
+                                            Log.i("TestLogin", response.getData().toString());
+                                            for (User item : response.getData().getItems()) {
+                                                currentUser = item;
+                                            }
+                                            Medicine medicine = Medicine.builder()
+                                                    .name(medName)
+                                                    .times(dosageHoursList)
+                                                    .dates(getDates(startDate, endDate))
+                                                    .expirationDate(expireDate)
+                                                    .availableTablets(pills)
+                                                    .user(currentUser)
+                                                    .dosage(numberOfTablets)
+                                                    .build();
+                                            Amplify.API.mutate(
+                                                    ModelMutation.create(medicine),
+                                                    responseto -> Log.i("MyAmplifyApp", "Added medicine with id: " + responseto.getData().getId()),
+                                                    error -> Log.e("MyAmplifyApp", "Create failed", error)
+                                            );
+                                        },
+                                        error -> Log.e("MyAmplifyApp", "Query failure", error)
+                                );
+                            },
+                            error -> Log.e("AmplifyQuickstart", error.toString())
+                    );
+                    List<Long> intervals = new ArrayList();
+                    for (String s : getDates(startDate, endDate)) {
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+                        LocalDate localDate = LocalDate.parse(s, formatter);
+                        for (String s1 : dosageHoursList) {
+                            String concatinate = localDate.toString() + "T" + s1;
+                            LocalDateTime localDateTime = LocalDateTime.parse(concatinate);
+                            long interval = localDateTime.toEpochSecond(ZoneOffset.UTC);
+                            long currentTimeInterval = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
+                            intervals.add(interval - currentTimeInterval);
+                        }
+                    }
+                    System.out.println(intervals);
+                    for (Long interval : intervals) {
+                        if (interval > 0) {
+                            Data.Builder data = new Data.Builder();
+                            data.putString("medName", medName);
+                            final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class)
+                                    .setInputData(data.build())
+                                    .setInitialDelay(interval, TimeUnit.SECONDS)
+                                    .build();
+                            WorkManager.getInstance().enqueue(workRequest);
+                        }
+                    }
+               editTextTextDosageTimes.setText("");
+               medNameField.setText("");
+               pillsCount.setText("");
+               dosage.setText("");
+
 //            Intent intent = new Intent(AddMedicineActivity.this, Calendar.class);
 //            startActivity(intent);
         });
+    }
+    private boolean CheckAllFields() {
+
+        if (editTextTextDosageTimes.length() == 0) {
+            editTextTextDosageTimes.setError("This field is required");
+            return false;
+        }
+        System.out.println("TESSSSSSSSSSSSSSSSSST"+medNameField.getText());
+        if (medNameField.length() == 0) {
+            medNameField.setError("This field is required");
+            return false;
+        }
+        if (pillsCount.length() == 0) {
+            pillsCount.setError("This field is required");
+            return false;
+        }
+        if (dosage.length() == 0) {
+            dosage.setError("This field is required");
+            return false;
+        }
+        return true;
     }
 
     private static List<String> getDates(String dateString1, String dateString2) {
@@ -289,4 +322,5 @@ public class AddMedicineActivity extends AppCompatActivity {
         }
         return dates;
     }
+
 }

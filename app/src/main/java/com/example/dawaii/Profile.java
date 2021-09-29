@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -13,9 +14,11 @@ import android.util.Log;
 
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
+import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Medicine;
 import com.amplifyframework.datastore.generated.model.User;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +65,20 @@ public class Profile extends AppCompatActivity {
                 },
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
+
+        FloatingActionButton logout=findViewById(R.id.logout);
+        logout.setOnClickListener(view -> {
+            Amplify.Auth.signOut(
+                    AuthSignOutOptions.builder().globalSignOut(true).build(),
+                    () -> {
+                        Log.i("AuthQuickstart", "Signed out successfully");
+                        Intent mainIntent = new Intent(Profile.this,MainActivity.class);
+                        startActivity(mainIntent);
+                        finish();
+                    },
+                    error -> Log.e("AuthQuickstart", error.toString())
+            );
+        });
     }
 
     @Override
