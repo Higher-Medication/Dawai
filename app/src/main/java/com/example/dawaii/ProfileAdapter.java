@@ -14,7 +14,7 @@ import com.amplifyframework.datastore.generated.model.Medicine;
 import java.util.List;
 
 public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.MedProfileViewHolder> {
-    List<Medicine> meds ;
+    List<Medicine> meds;
 
     public ProfileAdapter(List<Medicine> meds) {
         this.meds = meds;
@@ -47,11 +47,14 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.MedProfi
         TextView expirationDate = holder.itemView.findViewById(R.id.expirationDateProfile);
         TextView difference = holder.itemView.findViewById(R.id.pillsDiff);
         medName.setText(holder.medicine.getName());
-        String startEnd = holder.medicine.getDates().get(0) + "TO" + holder.medicine.getDates().get(holder.medicine.getDates().size() - 1);
-        startToEnd.setText(startEnd);
+        if (holder.medicine.getDates().size() > 0) {
+            String startEnd = holder.medicine.getDates().get(0) + "TO" + holder.medicine.getDates().get(holder.medicine.getDates().size() - 1);
+            startToEnd.setText(startEnd);
+
+        }
         expirationDate.setText(holder.medicine.getExpirationDate());
-        int required = holder.medicine.getDosage()*holder.medicine.getDates().size()*holder.medicine.getTimes().size();
-        String diff = "You have to take " + required + " pills from " + holder.medicine.getName()+ "\n you have "+ holder.medicine.getAvailableTablets();
+        int required = holder.medicine.getDosage() * holder.medicine.getDates().size() * holder.medicine.getTimes().size();
+        String diff = "You have to take " + required + " pills from " + holder.medicine.getName() + "\n you have " + holder.medicine.getAvailableTablets();
         difference.setText(diff);
     }
 

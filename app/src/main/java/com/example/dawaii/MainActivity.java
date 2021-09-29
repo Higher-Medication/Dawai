@@ -51,10 +51,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        System.out.println("nodede "+WorkManager.getInstance().getWorkInfosByTagLiveData(MyWorker.class.getName()).getValue());
+
         Button testButton = findViewById(R.id.TestButton);
         testButton.setOnClickListener(view -> {
 //            Intent intent=new Intent(MainActivity.this,AddMedicineActivity.class);
-            Intent intent = new Intent(MainActivity.this, Calendar.class);
+//            Intent intent = new Intent(MainActivity.this, Calendar.class);
+            Intent intent = new Intent(MainActivity.this, Profile.class);
             startActivity(intent);
         });
     }
