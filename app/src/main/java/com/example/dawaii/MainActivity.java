@@ -89,9 +89,9 @@ public class MainActivity extends AppCompatActivity {
         );
 
         List<Integer> testIntervals = new ArrayList();
-        testIntervals.add(3);
-        testIntervals.add(4);
         testIntervals.add(5);
+        testIntervals.add(10);
+        testIntervals.add(20);
 
         for (Integer testInterval : testIntervals) {
             final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class).setInitialDelay(testInterval,SECONDS).build();

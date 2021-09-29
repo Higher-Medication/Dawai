@@ -193,6 +193,7 @@ public final class Medicine implements Model {
     );
   }
   
+
   public interface NameStep {
     TimesStep name(String name);
   }
@@ -305,6 +306,5 @@ public final class Medicine implements Model {
         return this;
     }
   }
-  
 
 }
