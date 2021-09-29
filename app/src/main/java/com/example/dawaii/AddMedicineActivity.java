@@ -68,6 +68,14 @@ public class AddMedicineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_medicine);
 
+
+//                Button addMedicineButton = findViewById(R.id.addMedicineButton);
+//        addMedicineButton.setOnClickListener(view -> {
+////            Intent intent=new Intent(MainActivity.this,AddMedicineActivity.class);
+//            Intent intent = new Intent(AddMedicineActivity.this, Calendar.class);
+//            startActivity(intent);
+//        });
+
         editTextTextDosageTimes = findViewById(R.id.editTextTextDosageTimes);
         editTextTextDosageTimes.addTextChangedListener(new TextWatcher() {
             @Override
@@ -191,6 +199,8 @@ public class AddMedicineActivity extends AppCompatActivity {
         Button addMedicineButton = findViewById(R.id.addMedicineButton);
         addMedicineButton.setOnClickListener(v -> {
 
+
+
             TextView medNameField = findViewById(R.id.medicineNameInput);
             String medName = medNameField.getText().toString();
 
@@ -261,6 +271,8 @@ public class AddMedicineActivity extends AppCompatActivity {
                     WorkManager.getInstance().enqueue(workRequest);
                 }
             }
+//            Intent intent = new Intent(AddMedicineActivity.this, Calendar.class);
+//            startActivity(intent);
         });
 
     }
