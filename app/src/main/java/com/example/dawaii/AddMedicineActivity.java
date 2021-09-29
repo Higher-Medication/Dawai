@@ -193,7 +193,6 @@ public class AddMedicineActivity extends AppCompatActivity {
                 Log.d(TAG, "onDateSet: " + year + "/" + month + '/' + day + "  ----ExpirationDate");
                 String date1 = month + 1 + "/" + day + "/" + year;
                 expirationDate.setText(date1);
-                expirationDate.setTextSize(14);
             }
         };
 
