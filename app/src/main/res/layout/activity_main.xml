@@ -17,63 +17,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView"-->
-<!--        android:layout_width="520dp"-->
-<!--        android:layout_height="433dp"-->
-<!--        android:src="@drawable/logo2"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.4"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-    <!--    <Button-->
-<!--        android:id="@+id/getStartedBtn"-->
-<!--        style="@style/Widget.AppCompat.Button"-->
-<!--        android:layout_width="141dp"-->
-<!--        android:layout_height="41dp"-->
-<!--        android:layout_marginBottom="28dp"-->
-<!--        android:backgroundTint="#00BCD4"-->
-<!--        android:textColor="@color/white"-->
-
-<!--        android:text="Get Started"-->
-<!--        app:iconTintMode="screen"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/text2"-->
-<!--        app:layout_constraintVertical_bias="0.279" />-->
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie1"
         android:layout_width="410dp"
         android:layout_height="338dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="-20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_rawRes="@raw/firstsplash" />
 
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="181dp"
         android:layout_height="40dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="308dp"
         android:text="Your Virtual Nurse"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lottie1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text2"
         android:layout_width="348dp"
         android:layout_height="56dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="36dp"
         android:text="here our virtual nurse will help you to remember your pills, and ensure you take it in the correct date."
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,67 +56,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lottie1" />
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="181dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Do Good Feel Better"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text2" />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="348dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:text="possible to do both do good, feel better all in one app. An app that lets you manage your medication ."
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
     <Button
         android:id="@+id/getStartedBtn"
         android:layout_width="309dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="68dp"
         android:backgroundTint="@color/pink"
+        android:fontFamily="monospace"
         android:text="Get Started "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lottie1"
-        app:layout_constraintVertical_bias="0.697" />
 
-    <Button
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.901" />
+
+
+
+        <Button
         android:id="@+id/TestButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
+        android:layout_width="78dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="4dp"
         android:backgroundTint="@color/pink"
-        android:text="Button calendar"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getStartedBtn"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/getStartedBtn" />
 
 
-    <!--    <Button-->
-<!--        android:id="@+id/signOut"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="SIGN OUT"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.933"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.054" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/signIn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="SIGN UP "-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.051"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.054" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/loginBtn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Button"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.162" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

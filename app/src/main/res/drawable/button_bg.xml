@@ -2,6 +2,18 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <corners android:radius="20dp" />
-
     <solid android:color="@color/pink" />
+    <solid     android:bottomLeftRadius="40dp" />
+    <solid     android:bottomRightRadius="40dp" />
+    <solid     android:topLeftRadius="40dp" />
+    <solid     android:topRightRadius="40dp" />
+
+<!--        android:bottomLeftRadius="40dp"-->
+<!--    android:bottomRightRadius="40dp"-->
+<!--    android:topLeftRadius="40dp"-->
+<!--    android:topRightRadius="40dp"-->
+
+
+
+
 </shape>

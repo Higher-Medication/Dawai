@@ -48,8 +48,8 @@ public class SignIn extends AppCompatActivity {
                             password,
                             result -> {
                                 Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
-                                Intent goToMainActivity = new Intent(SignIn.this, MainActivity.class);
-                                startActivity(goToMainActivity);
+                                Intent goToCalendar = new Intent(SignIn.this, Calendar.class);
+                                startActivity(goToCalendar);
                             },
                             error -> {
                                 Log.e("AuthQuickstart", error.toString());
