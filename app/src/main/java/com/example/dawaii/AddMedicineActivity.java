@@ -68,25 +68,14 @@ public class AddMedicineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_medicine);
 
-
-//                Button addMedicineButton = findViewById(R.id.addMedicineButton);
-//        addMedicineButton.setOnClickListener(view -> {
-////            Intent intent=new Intent(MainActivity.this,AddMedicineActivity.class);
-//            Intent intent = new Intent(AddMedicineActivity.this, Calendar.class);
-//            startActivity(intent);
-//        });
-
         editTextTextDosageTimes = findViewById(R.id.editTextTextDosageTimes);
         editTextTextDosageTimes.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-
             }
 
             @Override
@@ -113,12 +102,18 @@ public class AddMedicineActivity extends AppCompatActivity {
             @Override
             public void onTimeSet(TimePicker timePicker, int hour, int minute) {
                 Log.d(TAG, "Last-onTimeSet: " + hour + ":" + minute);
-
-                if (hour<10){
-                    String time = "0"+hour + ":" + minute + ":00" ;
+                String time;
+                if (hour < 10 && minute < 10) {
+                    time = "0" + hour + ":" + "0" + minute + ":00";
                     dosageHoursList.add(time);
-                }else {
-                    String time = hour + ":" + minute + ":00" ;
+                } else if (hour < 10 && minute >= 10) {
+                    time = "0" + hour + ":" + minute + ":00";
+                    dosageHoursList.add(time);
+                } else if (hour >= 10 && minute < 10) {
+                    time = hour + ":" + "0" + minute + ":00";
+                    dosageHoursList.add(time);
+                } else {
+                    time = hour + ":" + minute + ":00";
                     dosageHoursList.add(time);
                 }
             }
@@ -162,7 +157,6 @@ public class AddMedicineActivity extends AppCompatActivity {
             dialog1.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
             dialog1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             dialog1.show();
-
         });
 
         onDateSetListener2 = new DatePickerDialog.OnDateSetListener() {
@@ -199,8 +193,6 @@ public class AddMedicineActivity extends AppCompatActivity {
         Button addMedicineButton = findViewById(R.id.addMedicineButton);
         addMedicineButton.setOnClickListener(v -> {
 
-
-
             TextView medNameField = findViewById(R.id.medicineNameInput);
             String medName = medNameField.getText().toString();
 
@@ -209,8 +201,6 @@ public class AddMedicineActivity extends AppCompatActivity {
 
             TextView dosage = findViewById(R.id.tabletsTextInput);
             Integer numberOfTablets = Integer.parseInt(String.valueOf(dosage.getText()));
-
-
 
             TextView expirationDate = findViewById(R.id.expirationDate);
             String expireDate = expirationDate.getText().toString();
@@ -263,7 +253,7 @@ public class AddMedicineActivity extends AppCompatActivity {
             for (Long interval : intervals) {
                 if (interval > 0) {
                     Data.Builder data = new Data.Builder();
-                    data.putString("medName",medName);
+                    data.putString("medName", medName);
                     final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class)
                             .setInputData(data.build())
                             .setInitialDelay(interval, TimeUnit.SECONDS)
@@ -274,7 +264,6 @@ public class AddMedicineActivity extends AppCompatActivity {
 //            Intent intent = new Intent(AddMedicineActivity.this, Calendar.class);
 //            startActivity(intent);
         });
-
     }
 
     private static List<String> getDates(String dateString1, String dateString2) {

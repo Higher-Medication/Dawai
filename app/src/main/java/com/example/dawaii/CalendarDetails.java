@@ -30,7 +30,7 @@ public class CalendarDetails extends AppCompatActivity {
     User currentUser;
     List<Medicine> AvailableMed = new ArrayList<>();
 
-    private  TextView theDate;
+    private TextView theDate;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -38,12 +38,8 @@ public class CalendarDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_details);
 
-
         Intent dateIntent = getIntent();
         String selectedDate = dateIntent.getStringExtra("Date");
-
-        System.out.println("Date  " + selectedDate);
-
         RecyclerView medsRecyclerView = findViewById(R.id.recyclerView);
 
         Handler handler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
@@ -69,11 +65,12 @@ public class CalendarDetails extends AppCompatActivity {
                                     for (String date : med.getDates()) {
                                         if (date.equals(selectedDate)) {
                                             AvailableMed.add(med);
-                                            System.out.println("medicine.getName" + med.getName());
                                             break;
                                         }
                                     }
                                 }
+                                System.out.println("my meds " + AvailableMed);
+
                                 handler.sendEmptyMessage(1);
                             },
                             error -> Log.e("MyAmplifyApp", "Query failure", error)
