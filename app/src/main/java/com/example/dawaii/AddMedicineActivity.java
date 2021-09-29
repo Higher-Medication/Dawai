@@ -72,13 +72,10 @@ public class AddMedicineActivity extends AppCompatActivity {
         editTextTextDosageTimes.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-
             }
 
             @Override
@@ -160,7 +157,6 @@ public class AddMedicineActivity extends AppCompatActivity {
             dialog1.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
             dialog1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             dialog1.show();
-
         });
 
         onDateSetListener2 = new DatePickerDialog.OnDateSetListener() {
@@ -205,7 +201,6 @@ public class AddMedicineActivity extends AppCompatActivity {
 
             TextView dosage = findViewById(R.id.tabletsTextInput);
             Integer numberOfTablets = Integer.parseInt(String.valueOf(dosage.getText()));
-
 
             TextView expirationDate = findViewById(R.id.expirationDate);
             String expireDate = expirationDate.getText().toString();
@@ -266,9 +261,9 @@ public class AddMedicineActivity extends AppCompatActivity {
                     WorkManager.getInstance().enqueue(workRequest);
                 }
             }
+//            Intent intent = new Intent(AddMedicineActivity.this, Calendar.class);
+//            startActivity(intent);
         });
-
-
     }
 
     private static List<String> getDates(String dateString1, String dateString2) {

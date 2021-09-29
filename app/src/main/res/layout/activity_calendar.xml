@@ -4,25 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbarStyle="outsideInset"
     tools:context=".Calendar">
 
-<!--    <ImageView-->
-<!--        android:id="@+id/logo11"-->
-<!--        android:layout_width="900dp"-->
-<!--        android:layout_height="277dp"-->
-<!--        android:layout_marginTop="4dp"-->
-<!--        android:src="@drawable/calendar"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.482"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/logo11"-->
+    <!--        android:layout_width="900dp"-->
+    <!--        android:layout_height="277dp"-->
+    <!--        android:layout_marginTop="4dp"-->
+    <!--        android:src="@drawable/calendar"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.482"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
 
     <ImageView
         android:id="@+id/img"
         android:layout_width="wrap_content"
         android:layout_height="900dp"
-        android:layout_marginTop="4dp"
         android:scaleType="centerCrop"
         android:src="@drawable/logo3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,81 +30,83 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <!--    <CalendarView-->
-<!--        android:id="@+id/calendar"-->
-<!--        android:layout_width="436dp"-->
-<!--        android:layout_height="298dp"-->
-<!--        android:layout_marginTop="300dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.52"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"></CalendarView>-->
-
-
-    <!--    <Button-->
-<!--        android:id="@+id/addMedicineBtn"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:backgroundTint="@color/pink"-->
-<!--        android:radius="30dp"-->
-<!--        android:text="Add Medicine"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textSize="16sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/lottie"-->
-<!--        app:layout_constraintVertical_bias="0.892"-->
-<!--        app:layout_constraintWidth_percent=".8" />-->
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie"
-        android:layout_width="788dp"
-        android:layout_height="247dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="710dp"
+        android:layout_height="277dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/img"
         app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/calendar1" />
+        app:lottie_rawRes="@raw/calendar3" />
+
+    <!--    <Button-->
+<!--        android:id="@+id/addMedicineBtn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:backgroundTint="@color/pink"-->
+<!--        android:clickable="true"-->
+<!--        android:radius="30dp"-->
+<!--        android:text="Add Medicine"-->
+<!--        android:tint="#FFF6F6"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.97"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/lottie"-->
+<!--        app:layout_constraintVertical_bias="0.991"-->
+<!--        app:layout_constraintWidth_percent=".8"-->
+<!--        app:rippleColor="#FAFAFA"-->
+<!--        app:srcCompat="@android:drawable/ic_menu_add" />-->
 
     <CalendarView
         android:id="@+id/calendar"
         android:layout_width="377dp"
         android:layout_height="343dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="16dp"
+        android:contextClickable="true"
         android:dateTextAppearance="@style/CalenderViewDateCustomText"
+        android:textDirection="ltr"
         android:theme="@style/CalenderViewCustom"
         android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.725" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addMedicineBtn"
+    <TextView
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Reminder"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addMedicineBtn"
+        android:layout_width="331dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="4dp"
         android:backgroundTint="@color/pink"
-        android:clickable="true"
-        android:radius="30dp"
-        android:text="Add Medicine"
+        android:text="Add"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.968"
+        app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lottie"
-        app:layout_constraintVertical_bias="0.952"
-        app:layout_constraintWidth_percent=".8"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:layout_constraintTop_toBottomOf="@+id/calendar"
+        app:layout_constraintVertical_bias="0.0"
+
+
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
