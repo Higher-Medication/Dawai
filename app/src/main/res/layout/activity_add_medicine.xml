@@ -102,22 +102,23 @@
 
     <Button
         android:id="@+id/addMedicineButton"
-        android:layout_width="267dp"
-        android:layout_height="52dp"
+        android:layout_width="282dp"
+        android:layout_height="55dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="36dp"
         android:backgroundTint="@color/pink"
         android:radius="30dp"
         android:text="Add  Medicine "
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.341"
 
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintWidth_percent=".8" />
 
     <TextView
