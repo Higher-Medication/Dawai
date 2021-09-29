@@ -49,21 +49,10 @@ dependencies {
     //congnito
     implementation 'com.amplifyframework:aws-auth-cognito:1.27.0'
 
-<<<<<<< HEAD
     implementation 'com.google.android.material:material:1.4.0'
-=======
-
-    implementation 'com.google.android.material:material:1.1.0'
->>>>>>> c7d5e6f7d2ebca730872150fb9cdff0270e11446
 
     implementation 'com.airbnb.android:lottie:4.1.0'
 
     /// work
-<<<<<<< HEAD
     implementation 'android.arch.work:work-runtime:1.0.1'
-=======
-    implementation "android.arch.work:work-runtime:1.0.0-alpha11"
-
-
->>>>>>> c7d5e6f7d2ebca730872150fb9cdff0270e11446
 }

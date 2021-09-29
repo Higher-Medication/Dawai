@@ -253,6 +253,7 @@ public class AddMedicineActivity extends AppCompatActivity {
             for (Long interval : intervals) {
                 if (interval > 0) {
                     Data.Builder data = new Data.Builder();
+                    data.putInt("numberOfTablets", numberOfTablets);
                     data.putString("medName", medName);
                     final OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class)
                             .setInputData(data.build())
